@@ -34,9 +34,9 @@ As a user, I want to customize my display name and profile picture.
 **Description: Build the functionality to manage posts, including creating, editing, and deleting posts, as well as viewing a list of posts.**
 
 User Stories: \
-As a user, I want to view a list of posts shared by other loop artists.
-As a user, I want to create a new post to share my own content, including the ability to add a YouTube video or post an image.
-As a user, I want to edit my own posts if I need to update the content.
+As a user, I want to view a list of posts shared by other loop artists. \
+As a user, I want to create a new post to share my own content, including the ability to add a YouTube video or post an image. \
+As a user, I want to edit my own posts if I need to update the content. \
 As a user, I want to delete my own posts if I decide to remove them.
 
 **Epic 5: Interaction (Liking, Commenting, Rating and Reporting)** \
@@ -44,8 +44,8 @@ As a user, I want to delete my own posts if I decide to remove them.
 
 User Stories: \
 As a user, I want to like posts that I find interesting to show appreciation for the content. \
-As a user, I want to comment on posts to engage with the community and share my thoughts. 
-As a user, I want to rate posts using a heart-based system to express my opinion about the quality of the content.
+As a user, I want to comment on posts to engage with the community and share my thoughts.  \
+As a user, I want to rate posts using a heart-based system to express my opinion about the quality of the content. \
 As a user, I want to report a post if I find it inappropriate, offensive, or violating the community guidelines. \
 As a user, I want to report a comment that I believe is inappropriate or offensive. 
 
@@ -67,5 +67,5 @@ As a user, I want the deployed application to handle traffic efficiently and rel
 User Stories: \
 As a developer, I want to provide a README file with setup instructions for local development. \
 As a developer, I want to document the application's features, including how to create an account, post content, and interact with posts. \
-As a developer, I want to explain the structure of the project, including its models, views, and templates.
+As a developer, I want to explain the structure of the project, including its models, views, and templates. \
 As a developer, I want to document any third-party libraries used in the project.
