@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['loopit.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['loopit-561b13093461.herokuapp.com', 'localhost']
 
 
 # Application definition
