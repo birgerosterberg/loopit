@@ -3,7 +3,7 @@ Loop It - Django
 ## Agile Plan
 
 ### Base Setup:
-**Epic 1: Base Setup**
+**Epic 1: Base Setup** \
 **Description: The base setup epic is for all stories needed for the base set up of the application. Without the base setup, the app would not be possible, so it was the first epic to be delivered as all other features depend on the completion of the base setup.**
 
 User Stories: \
