@@ -28,11 +28,11 @@ class Comment(models.Model):
     body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     upvibes = models.ManyToManyField(
-        User, related_name='upvoted_comments', blank=True
+        User, related_name='upvibed_comments', blank=True
     )
 
     def __str__(self):
-        return f"Comment on {self.post.title}"
+        return f"Comment on {self.post}"
 
-    def total_upvotes(self):
-        return self.upvibes.count()
+    def total_upvibes(self):
+        return self.upvibed.count()
