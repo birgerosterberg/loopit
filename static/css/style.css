@@ -1,0 +1,25 @@
+.post-hover:hover {
+  opacity: 0.8;
+}
+
+.custom-border {
+  border-bottom: 2px solid #000000;
+  border-right: 2px solid #000000;
+  box-shadow: rgba(107, 103, 103, 0.24) 0px 3px 8px;
+}
+
+.custom-border:hover {
+  border-bottom: 2px solid #191c1f;
+  border-right: 2px solid #191c1f;
+}
+
+.dark-card {
+  background-color: #191c1f;
+}
+
+a {
+  text-decoration: none;
+}
+a:hover {
+  outline: #000000;
+}
