@@ -7,6 +7,7 @@ from cloudinary.models import CloudinaryField
 
 class Post(models.Model):
     title = models.CharField(max_length=200)
+    slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="posts"
     )
@@ -14,6 +15,9 @@ class Post(models.Model):
     image = CloudinaryField('image', default='default_image')
     created_on = models.DateTimeField(auto_now_add=True)
     rating = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ["-created_on"]
 
     def __str__(self):
         return self.title
