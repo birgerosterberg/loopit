@@ -5,7 +5,7 @@
 .custom-border {
   border-bottom: 2px solid #000000;
   border-right: 2px solid #000000;
-  box-shadow: rgba(107, 103, 103, 0.24) 0px 3px 8px;
+  box-shadow: rgba(107, 103, 103, 0.457) 0px 3px 8px;
 }
 
 .custom-border:hover {
