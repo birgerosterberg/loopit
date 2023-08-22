@@ -20,6 +20,9 @@
                 <div class="row">
                     <div class="col-1">
                         <strong class="text-light"><i class="far fa-comments"></i> {{ comments.count }}</strong>
+                        {% if user == post.author %}
+                        <a href="{% url 'delete_post' post.slug %}">Delete Post</a>
+                        {% endif %}
                     </div>
                 </div>
             </div>

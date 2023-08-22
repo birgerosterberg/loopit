@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic, View
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 from .models import Post
 from .forms import PostForm
 from .forms import CommentForm
@@ -67,3 +69,18 @@ class PostDetail(View):
                 "comment_form": CommentForm()
             },
         )
+
+
+@method_decorator(login_required, name='dispatch')
+class DeletePostView(View):
+    template_name = 'delete_post.html'
+
+    def get(self, request, slug):
+        post = get_object_or_404(Post, slug=slug, author=request.user)
+        return render(request, DeletePostView.template_name, {'post': post})
+
+    def post(self, request, slug):
+        post = get_object_or_404(Post, slug=slug, author=request.user)
+        post.delete()
+        # Redirect to the post list after deletion
+        return redirect('home')
