@@ -1,6 +1,7 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic, View
 from .models import Post
+from .forms import PostForm
 from .forms import CommentForm
 
 
@@ -9,6 +10,23 @@ class PostList(generic.ListView):
     queryset = Post.objects.order_by('-created_on')
     template_name = 'index.html'
     paginate_by = 10
+
+
+class CreatePostView(View):
+    template_name = 'create_post.html'
+
+    def get(self, request):
+        form = PostForm()
+        return render(request, CreatePostView.template_name, {'form': form})
+
+    def post(self, request):
+        form = PostForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.save()
+            return redirect('post_detail', slug=post.slug)
+        return render(request, CreatePostView.template_name, {'form': form})
 
 
 class PostDetail(View):
