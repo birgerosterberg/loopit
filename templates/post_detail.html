@@ -23,6 +23,9 @@
                         {% if user == post.author %}
                         <a href="{% url 'delete_post' post.slug %}">Delete Post</a>
                         {% endif %}
+                        {% if user == post.author %}
+                        <a href="{% url 'edit_post' post.slug %}">Edit Post</a>
+                        {% endif %}
                     </div>
                 </div>
             </div>

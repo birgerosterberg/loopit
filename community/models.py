@@ -40,4 +40,4 @@ class Comment(models.Model):
         return f"Comment on {self.post}"
 
     def total_upvibes(self):
-        return self.upvibed.count()
+        return self.upvibes.count()
