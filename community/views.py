@@ -3,9 +3,9 @@ from django.views import generic, View
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib import messages
-from .models import Post
-from .forms import PostForm
-from .forms import CommentForm
+from django.contrib.auth.models import User
+from .models import Post, UserProfile
+from .forms import PostForm, CommentForm, UserProfileForm
 
 
 class PostList(generic.ListView):
@@ -110,3 +110,37 @@ class EditPostView(View):
         return render(
             request, EditPostView.template_name, {'form': form, 'post': post}
         )
+
+
+class UserProfileView(View):
+    template_name = 'user_profile.html'
+
+    def get(self, request, *args, **kwargs):
+        user_profile = request.user.userprofile
+        return render(request, 'user_profile.html', {'user_profile': user_profile})
+
+
+class UpdateUserProfileView(View):
+    template_name = 'update_user_profile.html'
+
+    def get(self, request, *args, **kwargs):
+        user_profile = request.user.userprofile
+        form = UserProfileForm(instance=user_profile)
+        return render(request, self.template_name, {'form': form})
+
+    def post(self, request, *args, **kwargs):
+        user_profile = request.user.userprofile
+        form = UserProfileForm(request.POST, instance=user_profile)
+        if form.is_valid():
+            form.save()
+            return redirect('user_profile_view')
+        return render(request, self.template_name, {'form': form})
+
+
+class ViewUserProfile(View):
+    template_name = 'view_user_profile.html'
+
+    def get(self, request, username, *args, **kwargs):
+        user = User.objects.get(username=username)
+        user_profile = UserProfile.objects.get(user=user)
+        return render(request, self.template_name, {'user_profile': user_profile})

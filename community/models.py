@@ -41,3 +41,14 @@ class Comment(models.Model):
 
     def total_upvibes(self):
         return self.upvibes.count()
+
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    profile_picture = CloudinaryField('profile_pictures/', blank=True)
+    first_name = models.CharField(max_length=100, blank=True)
+    last_name = models.CharField(max_length=100, blank=True)
+    about = models.TextField(blank=True)
+
+    def __str__(self):
+        return self.user.username

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="text-light">
+    <h1>User Profile</h1>
+    <p>Username: {{ user.username }}</p>
+    <p>First Name: {{ user.userprofile.first_name }}</p>
+    <p>Last Name: {{ user.userprofile.last_name }}</p>
+    <p>About: {{ user.userprofile.about }}</p>
+    <p>Profile Picture:</p>
+    <img src="{{ user.userprofile.profile_picture.url }}" alt="Profile Picture" width="150">
+    <a href="{% url 'update_user_profile' %}">Edit Profile</a>
+</div>
+{% endblock %}
