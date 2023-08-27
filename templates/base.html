@@ -38,7 +38,7 @@
                     </li>
                     <div class="d-flex justify-content-end mx-auto">
                         <span class="navbar-text text-light">
-                            Hi, <a href="{% url 'user_profile_view' %}">{{ user }}</a>
+                            <a href="{% url 'user_profile_view' %}">{{ request.user.username }}</a>
                         </span>
                     </div>
                     {% else %}

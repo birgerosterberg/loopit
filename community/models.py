@@ -1,9 +1,24 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.contrib.contenttypes.fields import GenericForeignKey
+from django.contrib.contenttypes.fields import GenericRelation
+from django.contrib.contenttypes.models import ContentType
 from cloudinary.models import CloudinaryField
 from autoslug import AutoSlugField
 
 # Create your models here.
+
+
+class Report(models.Model):
+    reporter = models.ForeignKey(User, on_delete=models.CASCADE)
+    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
+    object_id = models.PositiveIntegerField()
+    reported_item = GenericForeignKey('content_type', 'object_id')
+    reason = models.CharField(max_length=200)
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Report by {self.reporter} on {self.reported_item}"
 
 
 class Post(models.Model):
@@ -16,6 +31,10 @@ class Post(models.Model):
     image = CloudinaryField('image', default='default_image')
     created_on = models.DateTimeField(auto_now_add=True)
     rating = models.PositiveIntegerField(default=0)
+    reports = GenericRelation(Report)
+
+    def get_absolute_url(self):
+        return reverse("post_detail", args=[str(self.slug)])
 
     class Meta:
         ordering = ["-created_on"]
@@ -33,8 +52,8 @@ class Comment(models.Model):
     body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     upvibes = models.ManyToManyField(
-        User, related_name='upvibed_comments', blank=True
-    )
+        User, related_name='upvibed_comments', blank=True)
+    reports = GenericRelation(Report)
 
     def __str__(self):
         return f"Comment on {self.post}"

@@ -15,6 +15,7 @@ urlpatterns = [
          name='update_user_profile'),
     path('profile/<str:username>/',
          views.ViewUserProfile.as_view(), name='view_user_profile'),
-
+    path('report/<str:content_type>/<int:object_id>/',
+         views.ReportItemView.as_view(), name='report_item'),
 
 ]

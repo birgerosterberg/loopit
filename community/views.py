@@ -4,8 +4,8 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib import messages
 from django.contrib.auth.models import User
-from .models import Post, UserProfile
-from .forms import PostForm, CommentForm, UserProfileForm
+from .models import Post, UserProfile, Comment
+from .forms import PostForm, CommentForm, UserProfileForm, ReportForm
 
 
 class PostList(generic.ListView):
@@ -117,7 +117,9 @@ class UserProfileView(View):
 
     def get(self, request, *args, **kwargs):
         user_profile = request.user.userprofile
-        return render(request, 'user_profile.html', {'user_profile': user_profile})
+        return render(
+            request, 'user_profile.html', {'user_profile': user_profile}
+        )
 
 
 class UpdateUserProfileView(View):
@@ -144,3 +146,67 @@ class ViewUserProfile(View):
         user = User.objects.get(username=username)
         user_profile = UserProfile.objects.get(user=user)
         return render(request, self.template_name, {'user_profile': user_profile})
+
+
+class ReportItemView(View):
+    """View for reporting posts or comments."""
+
+    template_name = 'report_form.html'
+    http_method_names = ['get', 'post']
+
+    def get(self, request, content_type, object_id):
+        """
+        Handle GET requests to display the report form.
+
+        Args:
+            request: The HTTP request object.
+            content_type: Type of content ('post' or 'comment').
+            object_id: ID of the content to report.
+
+        Returns:
+            Rendered HTML template with the report form.
+        """
+        content_map = {
+            'post': Post,
+            'comment': Comment,
+        }
+        content_class = content_map.get(content_type)
+        content_item = get_object_or_404(content_class, id=object_id)
+        form = ReportForm(
+            initial={'content_type': content_type, 'object_id': object_id})
+        print(f"Debug: content_type = {content_type}, object_id = {object_id}")
+        context = {'form': form, 'content_item': content_item}
+        return render(request, self.template_name, context)
+
+    def post(self, request, content_type, object_id):
+        """
+        Handle POST requests to submit a report.
+
+        Args:
+            request: The HTTP request object.
+            content_type: Type of content ('post' or 'comment').
+            object_id: ID of the content being reported.
+
+        Returns:
+            Redirect to home page with a success message if report is valid,
+            otherwise re-renders the report form with error messages.
+        """
+        content_map = {
+            'post': Post,
+            'comment': Comment,
+        }
+        content_class = content_map.get(content_type)
+        content_item = get_object_or_404(content_class, id=object_id)
+        form = ReportForm(request.POST)
+        if form.is_valid():
+            report = form.save(commit=False)
+            report.reporter = request.user
+            report.reported_item = content_item
+            report.save()
+
+            # Display a success message and redirect to home page
+            messages.success(request, 'Report submitted successfully.')
+            return redirect('home')
+
+        context = {'form': form, 'content_item': content_item}
+        return render(request, self.template_name, context)

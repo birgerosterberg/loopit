@@ -22,9 +22,11 @@
                         <strong class="text-light"><i class="far fa-comments"></i> {{ comments.count }}</strong>
                         {% if user == post.author %}
                         <a href="{% url 'delete_post' post.slug %}">Delete Post</a>
-                        {% endif %}
-                        {% if user == post.author %}
                         <a href="{% url 'edit_post' post.slug %}">Edit Post</a>
+                        {% endif %}
+                        {% if user.is_authenticated %}
+                        <p>Debug: content_type = 'post', object_id = {{ post.id }}</p>
+                        <a href="{% url 'report_item' 'post' post.id %}" class="report-button">Report</a>
                         {% endif %}
                     </div>
                 </div>
@@ -40,7 +42,11 @@
                     {{ comment.author }} <span class="text-info">-</span>
                     {{ comment.created_on|date:"Y-m-d" }} <span class="text-info">-</span>
                     {{ comment.created_on|date:"H:i:s" }}<span class="text-info">:</span>
+                    {% if user.is_authenticated %}
+                <p>Debug: content_type = 'comment', object_id = {{ comment.id }}</p>
+                <a href="{% url 'report_item' 'comment' comment.id %}" class="report-button">Report</a>
 
+                {% endif %}
                 </p>
 
                 <div class="my-3 mx-3">

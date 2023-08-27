@@ -1,7 +1,7 @@
 from django_summernote.widgets import SummernoteWidget
 from crispy_forms.helper import FormHelper
 from django import forms
-from .models import Comment, Post, UserProfile
+from .models import Comment, Post, UserProfile, Report
 
 
 class CommentForm(forms.ModelForm):
@@ -27,3 +27,9 @@ class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
         fields = ('profile_picture', 'first_name', 'last_name', 'about')
+
+
+class ReportForm(forms.ModelForm):
+    class Meta:
+        model = Report
+        fields = ['reason']
