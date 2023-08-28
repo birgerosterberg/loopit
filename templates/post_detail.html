@@ -5,7 +5,14 @@
     <div class="row g-0">
         <div class="col-md-6">
             <h1 class="text-light">{{ post.title }}</h1>
-            <p class="text-light">{{ post.author }} - {{ post.created_on|date:"Y-m-d H:i"|default:"" }}</p>
+
+            <p class="text-light">
+                by:
+                <a href="{% url 'user_profile' post.author.username %}">
+                    {{ post.author }}
+                </a>
+                in {{ post.category.name }} - {{ post.created_on|date:"Y-m-d H:i"|default:"" }}
+            </p>
         </div>
     </div>
 </div>
@@ -39,7 +46,9 @@
             {% for comment in comments %}
             <div class="text-light">
                 <p class="fw-bold fs-5 text-decoration-underline font-monospace lh-lg">
-                    {{ comment.author }} <span class="text-info">-</span>
+                    <a href="{% url 'user_profile' comment.author.username %}">
+                        {{ comment.author }}
+                    </a>
                     {{ comment.created_on|date:"Y-m-d" }} <span class="text-info">-</span>
                     {{ comment.created_on|date:"H:i:s" }}<span class="text-info">:</span>
                     {% if user.is_authenticated %}

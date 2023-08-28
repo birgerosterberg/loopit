@@ -1,13 +1,13 @@
 from django.contrib import admin
 from django_summernote.admin import SummernoteModelAdmin
-from .models import Post, Comment, UserProfile, Report
+from .models import Post, Comment, UserProfile, Report, Category
 
 
 @admin.register(Post)
 class PostAdmin(SummernoteModelAdmin):
 
     search_fields = ['title', 'content']
-    list_display = ('title', 'slug', 'created_on', 'author')
+    list_display = ('title', 'slug', 'created_on', 'author', 'category')
     list_filter = ('author', 'created_on')
     summernote_fields = ('content')
 
@@ -32,3 +32,4 @@ class ReportAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Report, ReportAdmin)
+admin.site.register(Category)

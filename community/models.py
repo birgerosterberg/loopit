@@ -21,16 +21,26 @@ class Report(models.Model):
         return f"Report by {self.reporter} on {self.reported_item}"
 
 
+class Category(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.TextField()
+
+    def __str__(self):
+        return self.name
+
+
 class Post(models.Model):
     title = models.CharField(max_length=200)
     slug = AutoSlugField(populate_from='title', unique=True)
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="posts"
     )
+    category = models.ForeignKey(
+        Category, on_delete=models.CASCADE, null=False, blank=False
+    )
     content = models.TextField()
     image = CloudinaryField('image', default='default_image')
     created_on = models.DateTimeField(auto_now_add=True)
-    rating = models.PositiveIntegerField(default=0)
     reports = GenericRelation(Report)
 
     def get_absolute_url(self):

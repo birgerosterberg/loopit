@@ -13,7 +13,7 @@
                         <div class="card-body post-hover">
                             <a href="{% url 'post_detail' post.slug %}" class="post-link">
                                 <p class="card-title text-light h4">{{ post.title }}</p>
-                                <p class="card-text text-light h6">by {{ post.author }} -
+                                <p class="card-text text-light h6">by {{ post.author }} in {{ post.category.name }} -
                                     {{ post.created_on|date:"Y-m-d H:i"|default:"" }} -
                                     {{ post.comments.count }} <i class="far fa-comments"></i>
 

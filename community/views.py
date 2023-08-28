@@ -10,9 +10,15 @@ from .forms import PostForm, CommentForm, UserProfileForm, ReportForm
 
 class PostList(generic.ListView):
     model = Post
-    queryset = Post.objects.order_by('-created_on')
     template_name = 'index.html'
     paginate_by = 10
+
+    def get_queryset(self):
+        queryset = Post.objects.order_by('-created_on')
+        category_name = self.request.GET.get('category')
+        if category_name:
+            queryset = queryset.filter(category__name=category_name)
+        return queryset
 
 
 class CreatePostView(View):
