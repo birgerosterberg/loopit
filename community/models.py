@@ -70,4 +70,5 @@ class UserProfile(models.Model):
     about = models.TextField(blank=True)
 
     def __str__(self):
+
         return self.user.username

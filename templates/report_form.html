@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Report {{ content_item }}</h2>
-<p>Debug: content_type = {{ content_type }}, object_id = {{ object_id }}</p>
+<h2 class="text-light">Report {{ content_item }}</h2>
+<p class="text-light">Debug: content_type = {{ content_type }}, object_id = {{ object_id }}</p>
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}

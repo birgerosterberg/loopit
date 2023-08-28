@@ -112,40 +112,37 @@ class EditPostView(View):
         )
 
 
+@method_decorator(login_required, name='dispatch')
+class MyProfileView(View):
+    template_name = 'my_profile.html'
+
+    def get(self, request):
+        return render(request, self.template_name, {'user_profile': request.user.userprofile})
+
+
+@method_decorator(login_required, name='dispatch')
+class EditProfileView(View):
+    template_name = 'edit_profile.html'
+
+    def get(self, request):
+        form = UserProfileForm(instance=request.user.userprofile)
+        return render(request, self.template_name, {'form': form})
+
+    def post(self, request):
+        form = UserProfileForm(request.POST, instance=request.user.userprofile)
+        if form.is_valid():
+            form.save()
+            return redirect('my_profile')
+        return render(request, self.template_name, {'form': form})
+
+
 class UserProfileView(View):
     template_name = 'user_profile.html'
 
-    def get(self, request, *args, **kwargs):
-        user_profile = request.user.userprofile
-        return render(
-            request, 'user_profile.html', {'user_profile': user_profile}
-        )
-
-
-class UpdateUserProfileView(View):
-    template_name = 'update_user_profile.html'
-
-    def get(self, request, *args, **kwargs):
-        user_profile = request.user.userprofile
-        form = UserProfileForm(instance=user_profile)
-        return render(request, self.template_name, {'form': form})
-
-    def post(self, request, *args, **kwargs):
-        user_profile = request.user.userprofile
-        form = UserProfileForm(request.POST, instance=user_profile)
-        if form.is_valid():
-            form.save()
-            return redirect('user_profile_view')
-        return render(request, self.template_name, {'form': form})
-
-
-class ViewUserProfile(View):
-    template_name = 'view_user_profile.html'
-
-    def get(self, request, username, *args, **kwargs):
-        user = User.objects.get(username=username)
-        user_profile = UserProfile.objects.get(user=user)
-        return render(request, self.template_name, {'user_profile': user_profile})
+    def get(self, request, username):
+        user = get_object_or_404(User, username=username)
+        print(f"Username: {username}, User object: {user}")  # Debugging line
+        return render(request, self.template_name, {'user_profile': user.userprofile})
 
 
 class ReportItemView(View):

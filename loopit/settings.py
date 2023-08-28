@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     'django_summernote',
     'crispy_forms',
     'crispy_bootstrap5',
-    'community',
+    'community.apps.CommunityConfig',
 ]
 
 SITE_ID = 1
