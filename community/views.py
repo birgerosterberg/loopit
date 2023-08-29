@@ -212,7 +212,10 @@ class EditProfileView(View):
         Update the user's profile if the submitted form is valid.
         Redirect to the profile view afterwards.
         """
-        form = UserProfileForm(request.POST, instance=request.user.userprofile)
+        # This line handles both POST data and FILES (i.e., the uploaded image)
+        form = UserProfileForm(request.POST, request.FILES,
+                               instance=request.user.userprofile)
+
         if form.is_valid():
             form.save()
             return redirect('my_profile')
