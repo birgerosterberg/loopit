@@ -22,7 +22,7 @@ class PostList(generic.ListView):
         return queryset
 
 
-class CreatePostView(View):
+class CreatePostView(LoginRequiredMixin, View):
     template_name = 'create_post.html'
 
     def get(self, request):
