@@ -16,4 +16,5 @@ urlpatterns = [
          views.UserProfileView.as_view(), name='user_profile'),
     path('report/<str:content_type>/<int:object_id>/',
          views.ReportItemView.as_view(), name='report_item'),
+
 ]

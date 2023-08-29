@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic, View
+from django.views.generic import ListView
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib import messages
 from django.contrib.auth.models import User
-from .models import Post, UserProfile, Comment
+from .models import Post, UserProfile, Comment, Category
 from .forms import PostForm, CommentForm, UserProfileForm, ReportForm
 
 
@@ -117,24 +118,48 @@ class EditPostView(View):
             request, EditPostView.template_name, {'form': form, 'post': post}
         )
 
+# Use the @method_decorator to apply the login_required decorator to the View class.
+# This ensures that only logged-in users can access the view.
+
 
 @method_decorator(login_required, name='dispatch')
 class MyProfileView(View):
+    """View to display the logged-in user's profile."""
+
     template_name = 'my_profile.html'
 
     def get(self, request):
+        """
+        Handle GET requests.
+
+        Render the user's profile using the 'my_profile.html' template.
+        """
         return render(request, self.template_name, {'user_profile': request.user.userprofile})
 
 
+# Again, apply the login_required decorator to make sure only logged-in users can access the view.
 @method_decorator(login_required, name='dispatch')
 class EditProfileView(View):
+    """View to handle editing the logged-in user's profile."""
+
     template_name = 'edit_profile.html'
 
     def get(self, request):
+        """
+        Handle GET requests.
+
+        Render a form for editing the user's profile, pre-filled with the current profile information.
+        """
         form = UserProfileForm(instance=request.user.userprofile)
         return render(request, self.template_name, {'form': form})
 
     def post(self, request):
+        """
+        Handle POST requests.
+
+        Update the user's profile if the submitted form is valid.
+        Redirect to the profile view afterwards.
+        """
         form = UserProfileForm(request.POST, instance=request.user.userprofile)
         if form.is_valid():
             form.save()
@@ -143,9 +168,17 @@ class EditProfileView(View):
 
 
 class UserProfileView(View):
+    """View to display any user's profile based on the username in the URL."""
+
     template_name = 'user_profile.html'
 
     def get(self, request, username):
+        """
+        Handle GET requests.
+
+        Render the profile of the user specified by the 'username' argument in the URL.
+        """
+        # Fetch the User object corresponding to the username. If it doesn't exist, return a 404 error.
         user = get_object_or_404(User, username=username)
         print(f"Username: {username}, User object: {user}")  # Debugging line
         return render(request, self.template_name, {'user_profile': user.userprofile})

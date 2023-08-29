@@ -11,7 +11,8 @@
                 <a href="{% url 'user_profile' post.author.username %}">
                     {{ post.author }}
                 </a>
-                in {{ post.category.name }} - {{ post.created_on|date:"Y-m-d H:i"|default:"" }}
+                in {{ post.category.name }} - {{ post.created_on|date:"Y-m-d H:i"|default:"" }} - {{ categories }}
+
             </p>
         </div>
     </div>
