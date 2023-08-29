@@ -13,9 +13,9 @@
                         class="text-decoration-none text-info fw-bold fs-6 post-hover">
                         {{ post.author|capfirst }}
                     </a>
-                    <span class="mx-2">|</span>
+                    <span class="mx-2 fs-6">|</span>
                     <span class="fw-bold">in:</span> {{ post.category.name }}
-                    <span class="mx-2">|</span>
+                    <span class="mx-2 fs-6">|</span>
                     <span class="fw-bold">Date:</span> {{ post.created_on|date:"Y-m-d H:i"|default:"" }}
                 </small>
             </div>
@@ -26,11 +26,15 @@
                         <strong class="text-light"><i class="far fa-comments"></i> {{ comments.count }}</strong>
                         <div>
                             {% if user == post.author %}
-                            <a href="{% url 'delete_post' post.slug %}">Delete</a> |
-                            <a href="{% url 'edit_post' post.slug %}">Edit</a> |
+                            <a href="{% url 'delete_post' post.slug %}"
+                                class="report-button text-decoration-none fs-6 fw-bold text-info post-hover">Delete</a>
+                            |
+                            <a href="{% url 'edit_post' post.slug %}"
+                                class="report-button text-decoration-none fs-6 fw-bold text-info post-hover">Edit</a> |
                             {% endif %}
                             {% if user.is_authenticated %}
-                            <a href="{% url 'report_item' 'post' post.id %}" class="report-button">Report</a>
+                            <a href="{% url 'report_item' 'post' post.id %}"
+                                class="report-button text-decoration-none fs-6 fw-bold text-info post-hover">Report</a>
                             {% endif %}
                         </div>
                     </div>
@@ -43,26 +47,40 @@
                 <div class="card-body text-start"> <!-- Left-aligned text -->
                     {% for comment in comments %}
                     <div class="text-light">
-                        <p class="fw-bold fs-5 text-decoration-underline font-monospace lh-lg">
-                            <a href="{% url 'user_profile' comment.author.username %}">
-                                {{ comment.author }}
-                            </a>
-                            {{ comment.created_on|date:"Y-m-d" }} <span class="text-info">-</span>
-                            {{ comment.created_on|date:"H:i:s" }}<span class="text-info">:</span>
+                        <!-- Flexbox container -->
+                        <div class="d-flex align-items-center">
+                            <!-- For each comment -->
+                            <p class="fs-6 text-decoration-none lh-lg mb-0"> <!-- removed margin-bottom -->
+                                <!-- Link to user's profile -->
+                                <a href="{% url 'user_profile' comment.author.username %}"
+                                    class="text-decoration-none fs-6 fw-bold text-info post-hover">
+                                    {{ comment.author|capfirst }}
+                                </a>
+
+                                <!-- Comment date and time -->
+                                <span class="text-light ms-2">{{ comment.created_on|date:"Y-m-d" }}</span>
+                                <span class="text-info">-</span>
+                                <span class="text-light">{{ comment.created_on|date:"H:i:s" }}</span>
+                                <span class="text-info">:</span>
+                            </p>
+
+                            <!-- Report button (aligned to the right) -->
                             {% if user.is_authenticated %}
-                            <a href="{% url 'report_item' 'comment' comment.id %}" class="report-button">Report</a>
+                            <a href="{% url 'report_item' 'comment' comment.id %}"
+                                class="text-decoration-none fs-6 fw-bold text-info post-hover ms-auto">Report</a>
                             {% endif %}
-                        </p>
+                        </div>
+
                         <div class="my-3 mx-3">
                             <p>{{ comment.body | linebreaks }}</p>
                         </div>
+
+                        <hr>
                     </div>
-                    <hr>
                     {% endfor %}
                 </div>
             </div>
             {% endif %}
-
             {% if user.is_authenticated %}
             <div class="card dark-card custom-border text-light mb-4 mt-3">
                 <div class="card-body">
