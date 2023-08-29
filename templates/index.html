@@ -6,7 +6,8 @@
 
         <!-- Post Columns -->
         {% if user.is_authenticated %}
-        <button class="nav-link text-dark fw-bold btn btn-info btn-outline-light text-center d-block my-2 mx-auto"
+        <button
+            class="nav-link rounded text-dark fw-bold btn btn-info btn-outline-light text-center d-block my-2 mx-auto"
             onclick="location.href='{% url 'create_post' %}'">Post</button>
         {% endif %}
         <div class="container mt-5">
@@ -17,8 +18,8 @@
                         <div class="card-body post-hover">
                             <a href="{% url 'post_detail' post.slug %}" class="post-link">
                                 <!-- Add a background to the card-title -->
-                                <div class="bg-info text- rounded p-2 mb-3">
-                                    <h4 class="card-title mb-0 text-dark text-center">
+                                <div class="bg-secondary rounded p-2 mb-3">
+                                    <h4 class="card-title mb-0 text-light text-outline text-center">
                                         {{ post.title }}
 
                                     </h4>
