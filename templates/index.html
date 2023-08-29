@@ -3,13 +3,21 @@
 
 <div class="container-fluid">
     <div class="column">
-
         <!-- Post Columns -->
         {% if user.is_authenticated %}
         <button
             class="nav-link rounded text-dark fw-bold btn btn-info btn-outline-light text-center d-block my-2 mx-auto"
             onclick="location.href='{% url 'create_post' %}'">Post</button>
         {% endif %}
+        <div class="categories p-1 rounded d-flex justify-content-center">
+            <a href="?" class="btn btn-info btn-outline-light m-1 text-dark">All</a>
+            <!-- This link will remove all filtering -->
+            <a href="?category=General" class="btn btn-info btn-outline-light m-1 text-dark">General</a>
+            <a href="?category=Hardware" class="btn btn-info btn-outline-light m-1 text-dark">Hardware</a>
+            <a href="?category=Software" class="btn btn-info btn-outline-light m-1 text-dark">Software</a>
+            <a href="?category=Promotion" class="btn btn-info btn-outline-light m-1 text-dark">Promotion</a>
+            <a href="?category=Inspiration" class="btn btn-info btn-outline-light m-1 text-dark">Inspiration</a>
+        </div>
         <div class="container mt-5">
             <div class="row justify-content-center">
                 {% for post in post_list %}
