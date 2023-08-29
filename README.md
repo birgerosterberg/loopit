@@ -1,8 +1,11 @@
 # loopit
-Loop It - Django 
+
+Loop It - Django
+
 ## Agile Plan
 
 ### Base Setup:
+
 **Epic 1: Base Setup** \
 **Description: The base setup epic is for all stories needed for the base set up of the application. Without the base setup, the app would not be possible, so it was the first epic to be delivered as all other features depend on the completion of the base setup.**
 
@@ -14,13 +17,14 @@ As a developer, I need to create the footer with social media links and contact 
 As a developer, I need to create the navbar so that users can navigate the website from any device
 
 ### User Management:
+
 **Epic 2: User Registration and Authentication** \
-**Description: Develop user registration and authentication functionalities to allow users to create accounts, log in, log out, and reset passwords.** 
+**Description: Develop user registration and authentication functionalities to allow users to create accounts, log in, log out, and reset passwords.**
 
 User Stories: \
 As a new user, I want to create an account so that I can start using the LoopIt. \
 As a registered user, I want to be able to log in and log out of my account. \
-As a registered user, I want to reset my password if I forget it. 
+As a registered user, I want to reset my password if I forget it.
 
 **Epic 3: User Profile and Settings** \
 **Description: Implement user profiles where users can view their activity, customize display names, and upload profile pictures.**
@@ -30,6 +34,7 @@ As a user, I want to have a profile page where I can see my posts and likes. \
 As a user, I want to customize my display name and profile picture.
 
 ### Content Management:
+
 **Epic 4: Post Creation and Management** \
 **Description: Build the functionality to manage posts, including creating, editing, and deleting posts, as well as viewing a list of posts.**
 
@@ -44,13 +49,13 @@ As a user, I want to delete my own posts if I decide to remove them.
 
 User Stories: \
 As a user, I want to like posts that I find interesting to show appreciation for the content. \
-As a user, I want to comment on posts to engage with the community and share my thoughts.  \
+As a user, I want to comment on posts to engage with the community and share my thoughts. \
 As a user, I want to rate posts using a heart-based system to express my opinion about the quality of the content. \
 As a user, I want to report a post if I find it inappropriate, offensive, or violating the community guidelines. \
-As a user, I want to report a comment that I believe is inappropriate or offensive. 
-
+As a user, I want to report a comment that I believe is inappropriate or offensive.
 
 ### Deployment and Documentation:
+
 **Epic 6: Deployment and Hosting** \
 **Description: Prepare your application for deployment and choose a hosting platform to make it accessible online.**
 
@@ -69,3 +74,6 @@ As a developer, I want to provide a README file with setup instructions for loca
 As a developer, I want to document the application's features, including how to create an account, post content, and interact with posts. \
 As a developer, I want to explain the structure of the project, including its models, views, and templates. \
 As a developer, I want to document any third-party libraries used in the project.
+
+Credits: \
+https://www.pngegg.com/en/png-zepmn - Infinity symbol default.jpg
