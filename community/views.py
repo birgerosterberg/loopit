@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views import generic, View
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib import messages
 from django.contrib.auth.models import User
-from .models import Post, UserProfile, Comment, Category
+from .models import Post, Comment
 from .forms import PostForm, CommentForm, UserProfileForm, ReportForm
 
 
@@ -83,10 +84,14 @@ class PostDetail(View):
 
 
 @method_decorator(login_required, name='dispatch')
-class DeletePostView(View):
+class DeletePostView(LoginRequiredMixin, UserPassesTestMixin, View):
     """View to handle the deletion of a user's own posts."""
 
     template_name = 'delete_post.html'
+
+    def test_func(self):
+        post = get_object_or_404(Post, slug=self.kwargs['slug'])
+        return post.author == self.request.user
 
     def get(self, request, slug):
         """
@@ -105,7 +110,8 @@ class DeletePostView(View):
 
         Delete the post and redirect to the homepage.
         """
-        # Fetch the Post object based on the slug and make sure the author matches the logged-in user.
+        # Fetch the Post object based on the slug and
+        # make sure the author matches the logged-in user.
         post = get_object_or_404(Post, slug=slug, author=request.user)
         post.delete()
         messages.success(request, 'Post deleted successfully!')
@@ -113,12 +119,17 @@ class DeletePostView(View):
         return redirect('home')
 
 
-# Apply the login_required decorator to make sure only logged-in users can access the view.
+# Apply the login_required decorator to make sure only
+# logged-in users can access the view.
 @method_decorator(login_required, name='dispatch')
-class EditPostView(View):
+class EditPostView(LoginRequiredMixin, UserPassesTestMixin, View):
     """View to handle editing a user's own posts."""
 
     template_name = 'edit_post.html'
+
+    def test_func(self):
+        post = get_object_or_404(Post, slug=self.kwargs['slug'])
+        return post.author == self.request.user
 
     def get(self, request, slug):
         """
@@ -176,7 +187,8 @@ class MyProfileView(View):
         )
 
 
-# Again, apply the login_required decorator to make sure only logged-in users can access the view.
+# Again, apply the login_required decorator to make sure only logged-in
+# users can access the view.
 @method_decorator(login_required, name='dispatch')
 class EditProfileView(View):
     """View to handle editing the logged-in user's profile."""
@@ -187,7 +199,8 @@ class EditProfileView(View):
         """
         Handle GET requests.
 
-        Render a form for editing the user's profile, pre-filled with the current profile information.
+        Render a form for editing the user's profile, pre-filled
+        with the current profile information.
         """
         form = UserProfileForm(instance=request.user.userprofile)
         return render(request, self.template_name, {'form': form})
@@ -215,9 +228,11 @@ class UserProfileView(View):
         """
         Handle GET requests.
 
-        Render the profile of the user specified by the 'username' argument in the URL.
+        Render the profile of the user specified by the 'username'
+        argument in the URL.
         """
-        # Fetch the User object corresponding to the username. If it doesn't exist, return a 404 error.
+        # Fetch the User object corresponding to the username.
+        # If it doesn't exist, return a 404 error.
         user = get_object_or_404(User, username=username)
         print(f"Username: {username}, User object: {user}")  # Debugging line
         return render(request, self.template_name, {'user_profile': user.userprofile})
