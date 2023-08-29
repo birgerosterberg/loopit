@@ -5,6 +5,10 @@
     <div class="column">
 
         <!-- Post Columns -->
+        {% if user.is_authenticated %}
+        <button class="nav-link text-dark fw-bold btn btn-info btn-outline-light text-center d-block my-2 mx-auto"
+            onclick="location.href='{% url 'create_post' %}'">Post</button>
+        {% endif %}
         <div class="container mt-5">
             <div class="row justify-content-center">
                 {% for post in post_list %}
@@ -13,7 +17,9 @@
                         <div class="card-body post-hover">
                             <a href="{% url 'post_detail' post.slug %}" class="post-link">
                                 <p class="card-title text-light h4">{{ post.title }}</p>
-                                <p class="card-text text-light h6">by {{ post.author }} in {{ post.category.name }} -
+                                <p class="card-text text-light h6">by
+                                    {{ post.author|capfirst }} in
+                                    {{ post.category.name }} -
                                     {{ post.created_on|date:"Y-m-d H:i"|default:"" }} -
                                     {{ post.comments.count }} <i class="far fa-comments"></i>
 
