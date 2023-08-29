@@ -60,7 +60,7 @@
             <ul class="pagination justify-content-center">
                 {% if page_obj.has_previous %}
                 <li>
-                    <button class="page-link btn text-dark fw-bold btn btn-info btn-outline-light text-center"
+                    <button class="text-dark fw-bold btn btn-info btn-outline-light text-center"
                         onclick="window.location.href='?page={{ page_obj.previous_page_number }}'">
                         &laquo; PREV
                     </button>
@@ -68,7 +68,7 @@
                 {% endif %}
                 {% if page_obj.has_next %}
                 <li>
-                    <button class="page-link text-dark fw-bold btn btn-info btn-outline-light text-center"
+                    <button class="text-dark fw-bold btn btn-info btn-outline-light text-center"
                         onclick="window.location.href='?page={{ page_obj.next_page_number }}'">
                         NEXT &raquo;
                     </button>

@@ -27,34 +27,51 @@
             </button>
             <div class="collapse navbar-collapse justify-content-center" id="navbarText">
                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0 text-light">
-                    <!-- your navbar links styled like post.author -->
+                    <!-- Home with house icon -->
                     <li class="nav-item">
                         <a class="nav-link text-decoration-none text-info fw-bold fs-6 post-hover" aria-current="page"
-                            href="{% url 'home' %}">Home</a>
+                            href="{% url 'home' %}">
+                            <i class="fas fa-home text-light me-2"></i>Home
+                        </a>
                     </li>
                     {% if user.is_authenticated %}
+                    <!-- Logout with sign-out icon -->
                     <li class="nav-item">
                         <a class="nav-link text-decoration-none text-info fw-bold fs-6 post-hover"
-                            href="{% url 'account_logout' %}">Logout</a>
+                            href="{% url 'account_logout' %}">
+                            <i class="fas fa-sign-out-alt text-light me-2"></i>Logout
+                        </a>
                     </li>
+                    <!-- My Profile with user icon -->
                     <li class="nav-item">
                         <a class="nav-link text-decoration-none text-info fw-bold fs-6 post-hover"
-                            href="{% url 'my_profile' %}">My Profile</a>
+                            href="{% url 'my_profile' %}">
+                            <i class="fas fa-user text-light me-2"></i>My Profile
+                        </a>
                     </li>
                     {% if user.is_superuser %}
+                    <!-- Admin with cog icon -->
                     <li class="nav-item">
                         <a class="nav-link text-decoration-none text-info fw-bold fs-6 post-hover"
-                            href="{% url 'admin:index' %}" target="_blank">Admin</a>
+                            href="{% url 'admin:index' %}" target="_blank">
+                            <i class="fas fa-cog text-light me-2"></i>Admin
+                        </a>
                     </li>
                     {% endif %}
                     {% else %}
+                    <!-- Register with user-plus icon -->
                     <li class="nav-item">
                         <a class="nav-link text-decoration-none text-info fw-bold fs-6 post-hover"
-                            href="{% url 'account_signup' %}">Register</a>
+                            href="{% url 'account_signup' %}">
+                            <i class="fas fa-user-plus text-light me-2"></i>Register
+                        </a>
                     </li>
+                    <!-- Login with sign-in icon -->
                     <li class="nav-item">
                         <a class="nav-link text-decoration-none text-info fw-bold fs-6 post-hover"
-                            href="{% url 'account_login' %}">Login</a>
+                            href="{% url 'account_login' %}">
+                            <i class="fas fa-sign-in-alt text-light me-2"></i>Login
+                        </a>
                     </li>
                     {% endif %}
                 </ul>
