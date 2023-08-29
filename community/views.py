@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic, View
-from django.views.generic import ListView
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib import messages
@@ -79,28 +78,57 @@ class PostDetail(View):
             },
         )
 
+# Apply the login_required decorator to make sure
+# only logged-in users can access the view.
+
 
 @method_decorator(login_required, name='dispatch')
 class DeletePostView(View):
+    """View to handle the deletion of a user's own posts."""
+
     template_name = 'delete_post.html'
 
     def get(self, request, slug):
+        """
+        Handle GET requests.
+
+        Show a confirmation page for deleting the post.
+        """
+        # Fetch the Post object based on the slug and make
+        # sure the author matches the logged-in user.
         post = get_object_or_404(Post, slug=slug, author=request.user)
         return render(request, DeletePostView.template_name, {'post': post})
 
     def post(self, request, slug):
+        """
+        Handle POST requests.
+
+        Delete the post and redirect to the homepage.
+        """
+        # Fetch the Post object based on the slug and make sure the author matches the logged-in user.
         post = get_object_or_404(Post, slug=slug, author=request.user)
         post.delete()
         messages.success(request, 'Post deleted successfully!')
-        # Redirect to the post list after deletion
+        # Redirect to the post list after deletion.
         return redirect('home')
 
 
+# Apply the login_required decorator to make sure only logged-in users can access the view.
 @method_decorator(login_required, name='dispatch')
 class EditPostView(View):
+    """View to handle editing a user's own posts."""
+
     template_name = 'edit_post.html'
 
     def get(self, request, slug):
+        """
+        Handle GET requests.
+
+        Render a form for editing the post,
+        pre-filled with the current post information.
+        """
+        # Fetch the Post object based on the slug and make sure
+        # the author matches the logged-in user.
         post = get_object_or_404(Post, slug=slug, author=request.user)
         form = PostForm(instance=post)
         return render(
@@ -108,6 +136,14 @@ class EditPostView(View):
         )
 
     def post(self, request, slug):
+        """
+        Handle POST requests.
+
+        Update the post if the submitted form is valid.
+        Redirect to the post detail view afterwards.
+        """
+        # Fetch the Post object based on the slug and
+        # make sure the author matches the logged-in user.
         post = get_object_or_404(Post, slug=slug, author=request.user)
         form = PostForm(request.POST, instance=post)
         if form.is_valid():
@@ -134,7 +170,10 @@ class MyProfileView(View):
 
         Render the user's profile using the 'my_profile.html' template.
         """
-        return render(request, self.template_name, {'user_profile': request.user.userprofile})
+        return render(
+            request, self.template_name, {
+                'user_profile': request.user.userprofile}
+        )
 
 
 # Again, apply the login_required decorator to make sure only logged-in users can access the view.
