@@ -25,3 +25,18 @@ a {
   text-shadow: 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,
     -1px 1px 0 #000, 1px 1px 5px rgba(0, 0, 0, 0.3);
 }
+.categories {
+  display: inline-flex;
+  border-top: 2px solid #6c757d;
+  border-bottom: 2px solid #6c757d;
+}
+
+.active {
+  font-weight: bold;
+  background-color: #6c757d; /* Bootstrap's secondary color */
+}
+
+.d-inline-flex a:hover,
+.active:hover {
+  background-color: #6c757d; /* Bootstrap's secondary color */
+}
