@@ -128,5 +128,74 @@ The platform allows for full CRUD (Create, Read, Update, Delete) operations on u
 
 Ease of use was a primary consideration during the design phase. Loopit features a clean, intuitive interface that lets users navigate the site with minimal effort.
 
+## Database Design
+
+The database consists of several tables, each representing a different aspect of the Loopit platform. Below is a schema overview:
+
+### Tables
+
+1. **User** (Inherited from Django's built-in User model)
+
+   - id (Auto-generated)
+   - username
+   - password
+   - email
+   - ...
+
+2. **Report**
+
+   - id (Auto-generated)
+   - reporter (Foreign Key -> User)
+   - content_type (Foreign Key -> ContentType)
+   - object_id (PositiveIntegerField)
+   - reported_item (GenericForeignKey)
+   - reason (CharField, max_length=200)
+   - timestamp (DateTimeField, auto_now_add=True)
+
+3. **Category**
+
+   - id (Auto-generated)
+   - name (CharField, max_length=100)
+   - description (TextField)
+
+4. **Post**
+
+   - id (Auto-generated)
+   - title (CharField, max_length=200)
+   - slug (AutoSlugField, unique=True)
+   - author (Foreign Key -> User)
+   - category (Foreign Key -> Category)
+   - content (TextField)
+   - image (CloudinaryField)
+   - created_on (DateTimeField, auto_now_add=True)
+   - reports (GenericRelation -> Report)
+
+5. **Comment**
+
+   - id (Auto-generated)
+   - post (Foreign Key -> Post)
+   - author (Foreign Key -> User)
+   - body (TextField)
+   - created_on (DateTimeField, auto_now_add=True)
+   - upvibes (ManyToManyField -> User)
+   - reports (GenericRelation -> Report)
+
+6. **UserProfile**
+   - id (Auto-generated)
+   - user (OneToOneField -> User)
+   - profile_picture (CloudinaryField, blank=True)
+   - first_name (CharField, max_length=100, blank=True)
+   - last_name (CharField, max_length=100, blank=True)
+   - about (TextField, blank=True)
+
+### Relationships
+
+- A `User` can have multiple `Posts` but each `Post` belongs to one `User`.
+- A `Post` can belong to one `Category`.
+- A `User` can have multiple `Reports` but each `Report` is created by one `User`.
+- A `User` can have multiple `Comments` but each `Comment` is created by one `User`.
+- A `User` has one `UserProfile`.
+- A `Post` can have multiple `Comments` but each `Comment` belongs to one `Post`.
+
 Credits: \
 https://www.pngegg.com/en/png-zepmn - Infinity symbol default.jpg
