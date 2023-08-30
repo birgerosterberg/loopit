@@ -17,8 +17,10 @@
         </div>
     </div>
     {% if user.is_authenticated %}
-    <button class="nav-link rounded text-dark fw-bold btn btn-info btn-outline-light text-center d-block my-2 mx-auto"
-        onclick="location.href='{% url 'create_post' %}'">Post</button>
+    <button class="btn btn-secondary create-sb text-light text-outline fw-bold rounded py-2 px-4 mt-3 d-table mx-auto"
+        onclick="location.href='{% url 'create_post' %}'">
+        Create New Post
+    </button>
     {% endif %}
 
     <div class="container mt-5">

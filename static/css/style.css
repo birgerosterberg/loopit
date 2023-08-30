@@ -40,3 +40,8 @@ a {
 .active:hover {
   background-color: #6c757d; /* Bootstrap's secondary color */
 }
+
+.create-sb {
+  box-shadow: rgba(23, 162, 184, 0.4) 5px 5px, rgba(23, 162, 184, 0.3) 10px 10px,
+    rgba(23, 162, 184, 0.2) 15px 15px;
+}
