@@ -353,7 +353,21 @@ By providing these features, Loopit aims to create a platform where users can fe
 
 ## Pagination
 
-![next page](readme_files/nextp.png)![previous page](readme_files/prevp.png)
+## Pagination
+
+Loopit offers a simple yet effective pagination system to help users navigate through the growing library of posts efficiently.
+
+### How It Works
+
+- **Next Button**: Once there are more than 10 posts displayed on the front page, a 'Next' button will appear at the bottom of the post list. Clicking this will take you to the next set of posts.
+
+![next page](readme_files/nextp.png)!
+
+- **Previous Button**: When you're on subsequent pages, a 'Previous' button will also appear beside the 'Next' button. Clicking 'Previous' takes you back to the prior set of posts.
+
+![previous page](readme_files/prevp.png)
+
+This intuitive pagination setup ensures that users can easily explore more content without feeling overwhelmed by a seemingly endless scroll of posts.
 
 ### Technical Features
 
