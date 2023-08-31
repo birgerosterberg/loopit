@@ -104,7 +104,7 @@ As a developer, I want to document any third-party libraries used in the project
 4. **Expand the Community**: To introduce more people to the joy and creative possibilities of loop-based music.
 5. **Event Promotion**: To be the go-to platform for discovering and promoting events related to this genre of music.
 
-## Project Scope and Technical Features
+## Project Scope
 
 ### Scope
 
@@ -113,6 +113,116 @@ The scope of Loopit was carefully defined to create a focused and user-friendly 
 - Providing a community space specifically geared towards loop-based music enthusiasts.
 - Offering functionalities that support collaboration, sharing, and learning.
 - Ensuring a secure and safe environment for all users to freely express themselves and share content.
+
+## Features
+
+### Navigation Bar
+
+The navigation bar is dynamic and tailored to provide the most relevant options based on a user's authentication status and permissions. Below are the different types of navigation bars that a user may encounter:
+
+#### For Non-Logged-In Users
+
+![no user navbar](readme_files/navbar_nouser.png) \
+For visitors who have not logged in, the navigation bar offers the essentials:
+
+- **Home**: Navigate back to the main page.
+- **Register**: Sign up for a new Loopit account.
+- **Login**: Access your existing Loopit account.
+
+#### For Logged-In Users
+
+![logged in user navbar](readme_files/navbar.png)
+
+Once logged in, users will see additional options that enhance their ability to interact with the Loopit community:
+
+- **Home**: Navigate back to the main page.
+- **Logout**: Sign out of your Loopit account.
+- **My Profile**: View and edit your personal profile.
+
+#### For Superusers
+
+![admin navbar](readme_files/navbar_admin.png)
+
+For users with admin privileges, the navigation bar provides the highest level of control:
+
+- **Home**: Navigate back to the main page.
+- **Logout**: Sign out of your Loopit account.
+- **My Profile**: View and edit your personal profile.
+- **Admin**: Access the admin panel to manage users, posts, and more.
+
+Each set of options is deliberately minimal and self-explanatory with extra visuals by using icons, sticking with the overall design philosophy of Loopit—simple, functional, and user-centric.
+
+## Categories
+
+Categories are a key feature of Loopit, designed to help users easily navigate and discover content that interests them.
+
+### How it Works
+
+![Categories](readme_files/categories.png)
+
+When you land on the main page, the default setting displays posts from all categories. The categories are listed in their own navigation bar, and each serves as a filter:
+
+- **All**: Shows posts from all categories. This is the default view when the page loads.
+- **General**: Shows posts only from 'General'.
+- **Hardware**: Shows posts only from 'Hardware'.
+- **Software**: Shows posts only from 'Software'.
+- ... (and so on for other categories)
+
+### Active Category Highlight
+
+When you click on a category, the background color of that category changes to gray to indicate that it is the active filter. This visual cue helps you instantly recognize what content you're currently viewing.
+
+### User Experience
+
+The category system streamlines user experience by allowing quick and effortless content filtering. Just click a category, and the page will automatically update to show posts that match your selection.
+
+The goal is to help you find what you're looking for with minimal effort, aligning with Loopit's overarching design philosophy of simplicity and functionality.
+
+## Create Post
+
+For logged-in users, the "Create Post" button is a crucial part of the Loopit experience and serves as the primary call-to-action on the platform.
+
+### Design and Placement
+
+![Create post Button](readme_files/createp.png)
+
+Designed with an elegant aesthetic, this button stands out without being overwhelming. Its design cues make it clear that creating a post is an important action on this platform. The button is strategically placed for maximum visibility and easy access, encouraging users to share their content.
+
+### Availability
+
+The "Create Post" button is only available to users who are logged in, emphasizing its role as a feature for community members.
+
+### User Experience
+
+Clicking the button takes you to a simple and intuitive form that makes post creation a breeze. This is aligned with Loopit's core design philosophy of making user interactions as seamless as possible.
+
+![create new post form page](readme_files/createnewp.png)
+
+### Post Creation Experience
+
+Creating a post on Loopit is designed to be a fluid and enriching experience, thanks to the feature-rich SummerNote widget for the content section and the essential category selection. Here's what you can expect:
+
+#### Title
+
+The first field you'll encounter is the title. A compelling title can capture the essence of your post and attract more viewers.
+
+#### Content
+
+For the content, I've integrated the powerful SummerNote widget. It provides an array of options, from simple text formatting to adding images, links, and even code snippets. This allows you to customize your post exactly the way you want it, enhancing both the creation and consumption experience.
+
+#### Categories
+
+Before publishing, you'll need to select a category for your post. This helps in placing your post within the relevant topic, making it easier for community members to find and engage with your content.
+
+#### Create Post Button
+
+Finally, there's the 'Create Post' button. A simple click, and your post goes live, sharing your content with the Loopit community.
+
+This intuitive and straightforward process reflects Loopit's commitment to creating an environment where anyone can easily contribute and share their expertise or interests.
+
+## Pagination
+
+![next page](readme_files/nextp.png)![previous page](readme_files/prevp.png)
 
 ### Technical Features
 
