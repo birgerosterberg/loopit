@@ -275,10 +275,81 @@ Depending on who is viewing the post, additional options are made available:
 
 - **General Users**: For visitors without an account, no additional options are shown.
   ![no user view](readme_files/no_user_view.png)
-- **Logged-In Users**: If you are logged in, a 'Report' link appears, allowing you to report inappropriate content.
-- **Post Author**: If you are the author of the post, 'Edit' and 'Delete' options become available, offering full control over your content.
 
-![post owner view](readme_files/owner_view.png)
+- **Logged-In Users**: If you are logged in, a 'Report' link appears, allowing you to report inappropriate content.
+  ![user read post](readme_files/post_report.png)
+- **Post Author**: If you are the author of the post, 'Edit' and 'Delete' options become available, offering full control over your content.
+  ![post owner view](readme_files/owner_view.png)
+
+## Comment Section
+
+Engaging with posts goes beyond just viewing them. The Comment Section offers users an opportunity to share their thoughts, ask questions, or simply engage with the community.
+
+![comment part](readme_files/comment.png)
+
+### Comment Display
+
+#### Author, Date, and Time
+
+Each comment clearly displays the Author's name, as well as the Date and Time when the comment was posted. This provides context and credibility to each comment.
+
+#### Report Link for Logged-In Users
+
+For logged-in users, a 'Report' link is available next to each comment, allowing for the reporting of inappropriate or offensive content.
+
+#### Comment Content
+
+Following the author and timestamp information, the actual content of the comment is displayed, facilitating meaningful discussions and interactions.
+
+### Commenting Interface
+
+The interface for posting a comment is designed to be as straightforward as possible:
+
+#### Account Display
+
+Before you type, the username you are logged into is displayed, so you can ensure you're commenting from the correct account, especially if you manage multiple profiles such as an artist account and a private user account.
+
+#### Text Field and Submit Button
+
+To comment, all you need to do is type your thoughts into a generously sized text field and hit the 'Submit' button. It's that simple.
+
+By keeping the comment section user-friendly and intuitive, Loopit continues to foster a community where everyone feels comfortable to express themselves.
+
+## User Profiles
+
+Loopit offers personalized user profiles to enhance community engagement and provide a space for individual expression.
+
+### Accessing Profiles
+
+You can navigate to a user's profile in several ways:
+
+- **Author Names**: Clicking on the author names in post or comment sections will direct you to that user's profile.
+- **My Profile Link**: Logged-in users can easily access their own profile by clicking the 'My Profile' link in the navigation bar.
+
+### Profile Components
+
+#### Public Profile
+
+When you land on a user's profile, you'll find the following:
+
+- **Profile Picture**: A profile image of the user, which adds a personal touch.
+- **First and Last Name**: User's identified name to know who you are interacting with.
+- **About**: A section where users can write a little something about themselves, further fostering a sense of community.
+
+![profile visit](readme_files/profilev.png)
+
+#### Personal Profile
+
+When viewing your own profile, additional options are available:
+
+- **Edit Profile Button**: This button takes you to a form where you can:
+  - Add or change your profile picture.
+  - Modify your first and last name.
+  - Update or add text to your 'About' section.
+
+![edit profile page](readme_files/editprofile.png)
+
+By providing these features, Loopit aims to create a platform where users can feel recognized and engaged, amplifying the sense of community.
 
 ## Pagination
 
