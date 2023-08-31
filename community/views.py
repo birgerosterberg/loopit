@@ -165,7 +165,8 @@ class EditPostView(LoginRequiredMixin, UserPassesTestMixin, View):
             request, EditPostView.template_name, {'form': form, 'post': post}
         )
 
-# Use the @method_decorator to apply the login_required decorator to the View class.
+# Use the @method_decorator to apply the login_required decorator to
+# the View class.
 # This ensures that only logged-in users can access the view.
 
 
@@ -237,8 +238,9 @@ class UserProfileView(View):
         # Fetch the User object corresponding to the username.
         # If it doesn't exist, return a 404 error.
         user = get_object_or_404(User, username=username)
-        print(f"Username: {username}, User object: {user}")  # Debugging line
-        return render(request, self.template_name, {'user_profile': user.userprofile})
+        return render(
+            request, self.template_name, {'user_profile': user.userprofile}
+        )
 
 
 class ReportItemView(View):
@@ -267,7 +269,6 @@ class ReportItemView(View):
         content_item = get_object_or_404(content_class, id=object_id)
         form = ReportForm(
             initial={'content_type': content_type, 'object_id': object_id})
-        print(f"Debug: content_type = {content_type}, object_id = {object_id}")
         context = {'form': form, 'content_item': content_item}
         return render(request, self.template_name, context)
 
