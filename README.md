@@ -181,6 +181,7 @@ The database consists of several tables, each representing a different aspect of
    - reports (GenericRelation -> Report)
 
 6. **UserProfile**
+
    - id (Auto-generated)
    - user (OneToOneField -> User)
    - profile_picture (CloudinaryField, blank=True)
@@ -196,6 +197,22 @@ The database consists of several tables, each representing a different aspect of
 - A `User` can have multiple `Comments` but each `Comment` is created by one `User`.
 - A `User` has one `UserProfile`.
 - A `Post` can have multiple `Comments` but each `Comment` belongs to one `Post`.
+
+## Design Philosophy
+
+As the sole developer behind Loopit, my design philosophy centers around minimalism and a user-focused approach. I wanted to create a space where users feel at ease and can focus on what matters most—loop-based music.
+
+### Color Scheme
+
+I chose a dark background (`bg-dark`) coupled with light text (`text-light`) to achieve a high-contrast, visually appealing design that is also easy on the eyes.
+
+### Framework
+
+I opted for Bootstrap as my go-to framework. It simplified the development process, letting me concentrate more on features and less on layout issues. Plus, Bootstrap comes with a plethora of built-in components that are both functional and aesthetic.
+
+### Minimalistic Approach
+
+Minimalism was always at the forefront of my mind while designing this platform. My goal was to include only what's absolutely necessary for users, eliminating any elements that could distract or confuse. This 'less is more' philosophy has shaped Loopit into a platform that's simple but efficient, devoid of any unnecessary bells and whistles.
 
 Credits: \
 https://www.pngegg.com/en/png-zepmn - Infinity symbol default.jpg
