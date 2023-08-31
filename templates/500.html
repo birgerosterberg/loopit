@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 text-center">
+            <h1 class="display-1 text-danger">500</h1>
+            <h2 class="display-4">Internal Server Error</h2>
+            <p class="lead text-muted">Don't worry, this is us, not you!</p>
+            <a href="{% url 'home' %}" class="btn btn-info">Go to Home</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
