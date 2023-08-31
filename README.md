@@ -216,9 +216,69 @@ Before publishing, you'll need to select a category for your post. This helps in
 
 #### Create Post Button
 
-Finally, there's the 'Create Post' button. A simple click, and your post goes live, sharing your content with the Loopit community.
+Finally, there's the 'Create' button. A simple click, and your post goes live, sharing your content with the Loopit community.
 
 This intuitive and straightforward process reflects Loopit's commitment to creating an environment where anyone can easily contribute and share their expertise or interests.
+
+## Post Display
+
+The Post display on Loopit is designed to give you all the essential information you need at a glance, while keeping the layout simple and uncluttered.
+
+### Layout and Information
+
+![Presenting a post view](readme_files/postv.png)
+
+#### Title
+
+The first thing you'll notice is the title of the post, prominently displayed to capture your attention and give you an idea of what the post is about.
+
+#### Author and Category
+
+Underneath the title on the left-hand side, you'll find the author's name followed by the category the post belongs to. This arrangement helps you quickly gauge the topic and the credibility of the post.
+
+#### Date, Time, and Comments
+
+On the right-hand side of the title, the date and time the post was created are displayed. Just next to it, you'll see an icon accompanied by a number indicating the total number of comments on the post. This provides a snapshot of the level of engagement the post has received.
+
+#### User Experience
+
+By placing everything you need to know in an organized, easy-to-read format, Loopit aims to make content discovery both efficient and pleasant.
+
+#### Hover Effect
+
+To further enhance user interaction, a subtle hover effect has been implemented on each post display. When you hover over a post, the opacity changes to indicate that it's clickable. This visual cue adds to the platform's overall user-friendly design by making navigation more intuitive.
+
+## Post View Page
+
+## Individual Post View Page
+
+Once you click on a post from the homepage, you are taken to the individual 'Post View' page, where you can delve deeper into the content and its details.
+![read post user view](readme_files/readpost_user.png)
+
+### Layout and Components
+
+#### Title and Information View
+
+At the top, you are greeted with the title of the post, immediately followed by an information section. This section provides details like the Author's name, the Category the post falls under, and the Time and Date when the post was made.
+
+#### Content Container
+
+As you scroll down, you'll find the 'Content Container,' which houses the meat of the post. This could be text, images, and even embedded YouTube videos, providing a rich and engaging experience.
+
+#### Comment Counter
+
+In the bottom corner of the 'Content Container,' there's a comment count display, giving you an idea of the post's engagement level.
+
+### Conditional Features
+
+Depending on who is viewing the post, additional options are made available:
+
+- **General Users**: For visitors without an account, no additional options are shown.
+  ![no user view](readme_files/no_user_view.png)
+- **Logged-In Users**: If you are logged in, a 'Report' link appears, allowing you to report inappropriate content.
+- **Post Author**: If you are the author of the post, 'Edit' and 'Delete' options become available, offering full control over your content.
+
+![post owner view](readme_files/owner_view.png)
 
 ## Pagination
 
