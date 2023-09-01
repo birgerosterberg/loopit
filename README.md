@@ -770,6 +770,47 @@ Minimalism was always at the forefront of my mind while designing this platform.
 
 - Run `pip install -r requirements.txt` to install the necessary packages.
 
-## Credits:
+## Credits
 
-https://www.pngegg.com/en/png-zepmn - Infinity symbol default.jpg
+- [Stack Overflow](https://stackoverflow.com/) \
+  A treasure trove of knowledge that was instrumental in bringing this project to life.
+
+- [dev.to](https://dev.to/) \
+  An invaluable resource full of insightful information.
+
+- [r/django on Reddit](https://www.reddit.com/r/django/) \
+  A fantastic community with a wealth of information to offer.
+
+- [MDN](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django) \
+  Mozilla's MDN Web Docs—another indispensable resource I can't forget!
+
+- [Django Project Docs DB Model](https://docs.djangoproject.com/en/4.2/topics/db/models/) \
+  Offers excellent explanations for building models.
+
+- [Ask Python's Django Models](https://www.askpython.com/django/django-models) \
+  Yet another incredible resource for understanding model creation.
+
+- [Django Project Forum](https://forum.djangoproject.com/) \
+  The name says it all!
+
+- [CodeInstitute I Think Therefore I Blog](https://github.com/Code-Institute-Solutions/Django3blog/tree/master) \
+  A good coder is a lazy coder; much of LoopIt wouldn't work without this resource!
+
+- [Django AllAuth Docs](https://django-allauth.readthedocs.io/en/latest/) \
+  Comprehensive information on how AllAuth functions.
+
+- [Real Python Social Network Guide](https://realpython.com/django-social-network-1/) \
+  Offers great guidance on the steps required to build a profile page.
+
+- [GeeksForGeeks CRUD](https://www.geeksforgeeks.org/class-based-generic-views-django-create-retrieve-update-delete/) \
+  Extremely useful for understanding Views, Templates, and CRUD operations, since it provides many interesting extra links for further study.
+
+- [Bootstrap Documentation](https://getbootstrap.com/docs/5.3/getting-started/introduction/) \
+  Building this project would have been both a headache and a nightmare without this!
+
+- [Gareth McGirr](https://github.com/Gareth-McGirr) \
+  Provided excellent guidance throughout the project.
+
+### Special Thanks
+
+I'd like to extend a heartfelt thank-you to everyone who contributed their time and effort to test this project for bugs. Your insights and feedback were invaluable in making this a robust and user-friendly application.
