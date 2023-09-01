@@ -41,3 +41,15 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
   });
 });
+
+// Make summernote images responsive
+window.addEventListener("DOMContentLoaded", (event) => {
+  // Select all img elements inside <p> tags, within an element with class .summernote-content
+  let images = document.querySelectorAll(".summernote-content p img");
+
+  images.forEach((img) => {
+    img.style.width = ""; // Remove the inline width style
+    img.style.maxWidth = "100%"; // Set max-width to 100%
+    img.style.height = "auto"; // Set height to auto
+  });
+});
