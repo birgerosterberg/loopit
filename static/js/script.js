@@ -1,3 +1,5 @@
+/* global bootstrap */
+
 // Automagic close of the messages displayed.
 // Wait for the entire HTML document to be fully loaded
 document.addEventListener("DOMContentLoaded", function () {
@@ -44,7 +46,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 // Make summernote images and iframes responsive
 window.addEventListener("DOMContentLoaded", (event) => {
-  // Select all img and iframe elements inside <p> tags, within an element with class .summernote-content
+  // Select all img and iframe elements, within an element with class .summernote-content
   let mediaElements = document.querySelectorAll(
     ".summernote-content img, .summernote-content iframe"
   );
@@ -56,7 +58,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
       element.style.height = "auto"; // Set height to auto
     } else if (element.tagName.toLowerCase() === "iframe") {
       element.style.width = "100%"; // Set width to 100%
-      element.style.height = "100%"; // Set height to auto
+      element.style.height = "auto"; // Set height to auto
     }
   });
 });

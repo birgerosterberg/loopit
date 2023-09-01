@@ -6,17 +6,18 @@
         <!-- Post Columns -->
         <div class="d-flex flex-column align-items-center">
             <div id="categoryContainer" class="d-flex flex-wrap justify-content-center align-items-center categories">
-                <a href="?" class="p-2 text-info category-link">All</a>
-                <a href="?category=General" class="p-2 text-info category-link">General</a>
-                <a href="?category=Hardware" class="p-2 text-info category-link">Hardware</a>
-                <a href="?category=Software" class="p-2 text-info category-link">Software</a>
-                <a href="?category=Promotion" class="p-2 text-info category-link">Promotion</a>
-                <a href="?category=Inspiration" class="p-2 text-info category-link">Inspiration</a>
+                <a href="?" class="p-2 text-light category-link fs-5 text-outline">All</a>
+                <a href="?category=General" class="p-2 text-light category-link fs-5 text-outline">General</a>
+                <a href="?category=Hardware" class="p-2 text-light category-link fs-5 text-outline">Hardware</a>
+                <a href="?category=Software" class="p-2 text-light category-link fs-5 text-outline">Software</a>
+                <a href="?category=Promotion" class="p-2 text-light category-link fs-5 text-outline">Promotion</a>
+                <a href="?category=Inspiration" class="p-2 text-light category-link fs-5 text-outline">Inspiration</a>
             </div>
         </div>
     </div>
     {% if user.is_authenticated %}
-    <button class="btn btn-secondary create-sb text-light text-outline fw-bold rounded py-2 px-4 mt-3 d-table mx-auto"
+    <button
+        class="btn btn-secondary create-sb text-light text-outline fw-bold fs-5 rounded py-2 px-4 mt-3 d-table mx-auto"
         onclick="location.href='{% url 'create_post' %}'">
         Create New Post
     </button>

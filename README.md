@@ -1,5 +1,8 @@
 # Loopit - A Community for Loopers
 
+![Mockup of page](readme_files/mockup.png) \
+[LoopIt Live page link](https://loopit-561b13093461.herokuapp.com/)
+
 ## Loopit is an online community designed for enthusiasts of a special unique art of music creation, where looping machines like the famous BOSS RC505 are often used. This Django-based web application provides a platform for musicians to collaborate, share tips and tutorials, and discuss their love for this unique art form.
 
 ## Agile Planning and Development Process
