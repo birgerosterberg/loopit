@@ -108,3 +108,27 @@ To test if selecting a category filters the posts accordingly and highlights the
 |           | 4. Select "Software" from the categories row.    | Only posts tagged as "Software" should be displayed. "Software" should be marked as active.       | Behaved as expected. | <span style="color:green">Passed</span> |
 |           | 5. Select "Promotion" from the categories row.   | Only posts tagged as "Promotion" should be displayed. "Promotion" should be marked as active.     | Behaved as expected. | <span style="color:green">Passed</span> |
 |           | 6. Select "Inspiration" from the categories row. | Only posts tagged as "Inspiration" should be displayed. "Inspiration" should be marked as active. | Behaved as expected. | <span style="color:green">Passed</span> |
+
+---
+
+### Test Scenario 5: Viewing Individual Post Pages
+
+#### User Roles:
+
+- Author (User who owns the post)
+- Logged-in User (not the author)
+- Non-logged-in User
+
+#### Test Description:
+
+To test the different viewing options and buttons available on individual post pages based on the user role.
+
+#### Test Steps and Results:
+
+| User Type          | Test Steps                                                  | Expected Results                                                                                                                            | Actual Results       | Status                                  |
+| ------------------ | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- | --------------------------------------- |
+| Author             | 1. Log in and navigate to a post you authored.              | Should see the post along with Edit and Delete options. Should also see the "Report" button on the post, and the "Create a Comment" fields. | Behaved as expected. | <span style="color:green">Passed</span> |
+|                    |                                                             |                                                                                                                                             |                      |                                         |
+| Logged-in User     | 1. Log in as a different user (not the author of the post). | Should see the post, the "Report" button on the post, and the "Create a Comment" fields.                                                    | Behaved as expected. | <span style="color:green">Passed</span> |
+|                    |                                                             |                                                                                                                                             |                      |                                         |
+| Non-logged-in User | 1. View the post without logging in.                        | Should see the post and the comments made on it. No "Report" button or "Create a Comment" fields visible.                                   | Behaved as expected. | <span style="color:green">Passed</span> |

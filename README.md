@@ -114,6 +114,8 @@ The scope of Loopit was carefully defined to create a focused and user-friendly 
 - Offering functionalities that support collaboration, sharing, and learning.
 - Ensuring a secure and safe environment for all users to freely express themselves and share content.
 
+---
+
 ## Features
 
 ### Navigation Bar
@@ -152,6 +154,8 @@ For users with admin privileges, the navigation bar provides the highest level o
 
 Each set of options is deliberately minimal and self-explanatory with extra visuals by using icons, sticking with the overall design philosophy of Loopit—simple, functional, and user-centric.
 
+---
+
 ## Categories
 
 Categories are a key feature of Loopit, designed to help users easily navigate and discover content that interests them.
@@ -177,6 +181,8 @@ When you click on a category, the background color of that category changes to g
 The category system streamlines user experience by allowing quick and effortless content filtering. Just click a category, and the page will automatically update to show posts that match your selection.
 
 The goal is to help you find what you're looking for with minimal effort, aligning with Loopit's overarching design philosophy of simplicity and functionality.
+
+---
 
 ## Create Post
 
@@ -220,6 +226,8 @@ Finally, there's the 'Create' button. A simple click, and your post goes live, s
 
 This intuitive and straightforward process reflects Loopit's commitment to creating an environment where anyone can easily contribute and share their expertise or interests.
 
+---
+
 ## Post Display
 
 The Post display on Loopit is designed to give you all the essential information you need at a glance, while keeping the layout simple and uncluttered.
@@ -247,6 +255,8 @@ By placing everything you need to know in an organized, easy-to-read format, Loo
 #### Hover Effect
 
 To further enhance user interaction, a subtle hover effect has been implemented on each post display. When you hover over a post, the opacity changes to indicate that it's clickable. This visual cue adds to the platform's overall user-friendly design by making navigation more intuitive.
+
+---
 
 ## Post View Page
 
@@ -281,6 +291,8 @@ Depending on who is viewing the post, additional options are made available:
 - **Post Author**: If you are the author of the post, 'Edit' and 'Delete' options become available, offering full control over your content.
   ![post owner view](readme_files/owner_view.png)
 
+---
+
 ## Comment Section
 
 Engaging with posts goes beyond just viewing them. The Comment Section offers users an opportunity to share their thoughts, ask questions, or simply engage with the community.
@@ -314,6 +326,8 @@ Before you type, the username you are logged into is displayed, so you can ensur
 To comment, all you need to do is type your thoughts into a generously sized text field and hit the 'Submit' button. It's that simple.
 
 By keeping the comment section user-friendly and intuitive, Loopit continues to foster a community where everyone feels comfortable to express themselves.
+
+---
 
 ## User Profiles
 
@@ -351,7 +365,7 @@ When viewing your own profile, additional options are available:
 
 By providing these features, Loopit aims to create a platform where users can feel recognized and engaged, amplifying the sense of community.
 
-## Pagination
+---
 
 ## Pagination
 
