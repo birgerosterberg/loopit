@@ -42,14 +42,21 @@ document.addEventListener("DOMContentLoaded", (event) => {
   });
 });
 
-// Make summernote images responsive
+// Make summernote images and iframes responsive
 window.addEventListener("DOMContentLoaded", (event) => {
-  // Select all img elements inside <p> tags, within an element with class .summernote-content
-  let images = document.querySelectorAll(".summernote-content p img");
+  // Select all img and iframe elements inside <p> tags, within an element with class .summernote-content
+  let mediaElements = document.querySelectorAll(
+    ".summernote-content img, .summernote-content iframe"
+  );
 
-  images.forEach((img) => {
-    img.style.width = ""; // Remove the inline width style
-    img.style.maxWidth = "100%"; // Set max-width to 100%
-    img.style.height = "auto"; // Set height to auto
+  mediaElements.forEach((element) => {
+    if (element.tagName.toLowerCase() === "img") {
+      element.style.width = ""; // Remove the inline width style
+      element.style.maxWidth = "100%"; // Set max-width to 100%
+      element.style.height = "auto"; // Set height to auto
+    } else if (element.tagName.toLowerCase() === "iframe") {
+      element.style.width = "100%"; // Set width to 100%
+      element.style.height = "100%"; // Set height to auto
+    }
   });
 });
