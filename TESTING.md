@@ -242,3 +242,182 @@ To test the functionality of account creation via the Signup page.
 |                    | 4. Enter a weak password and click the "Sign Up" button.                                                                                          | Should see an error message about the password not being strong enough.                                            | Behaved as expected. | <span style="color:green">Passed</span> |
 |                    | 5. Enter differing passwords in the "Password" and "Repeat Password" fields, then click the "Sign Up" button.                                     | Should see an error message stating that the passwords do not match.                                               | Behaved as expected. | <span style="color:green">Passed</span> |
 |                    | 6. Fill in all fields correctly with a properly formatted email, unique username, and matching strong passwords, then click the "Sign Up" button. | Should successfully create the account and be redirected to the frontpage.                                         | Behaved as expected. | <span style="color:green">Passed</span> |
+
+---
+
+### Test Scenario 11: Logout Functionality
+
+#### User Roles:
+
+- Logged-in User
+- Superuser
+
+#### Test Description:
+
+To test the functionality of logging out from the application.
+
+#### Test Steps and Results:
+
+| User Type      | Test Steps                                             | Expected Results                                                                                                 | Actual Results       | Status                                  |
+| -------------- | ------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------- | -------------------- | --------------------------------------- |
+| Logged-in User | 1. Click the "Logout" button from the Navbar.          | Should be directed to a page that asks for logout confirmation.                                                  | Behaved as expected. | <span style="color:green">Passed</span> |
+|                | 2. Confirm the logout action on the confirmation page. | Should be logged out and redirected to the front page with a message stating "You have successfully logged out." | Behaved as expected. | <span style="color:green">Passed</span> |
+| Superuser      | 1. Click the "Logout" button from the Navbar.          | Should be directed to a page that asks for logout confirmation.                                                  | Behaved as expected. | <span style="color:green">Passed</span> |
+|                | 2. Confirm the logout action on the confirmation page. | Should be logged out and redirected to the front page with a message stating "You have successfully logged out." | Behaved as expected. | <span style="color:green">Passed</span> |
+
+---
+
+### Test Scenario 12: Login Functionality
+
+#### User Roles:
+
+- Non-logged-in User
+
+#### Test Description:
+
+To test the login functionality of the application.
+
+#### Test Steps and Results:
+
+| User Type          | Test Steps                                                                  | Expected Results                                                                                                                          | Actual Results       | Status                                  |
+| ------------------ | --------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | -------------------- | --------------------------------------- |
+| Non-logged-in User | 1. Click the "Login" button from the Navbar.                                | Should be redirected to the login page where username and password fields are displayed.                                                  | Behaved as expected. | <span style="color:green">Passed</span> |
+|                    | 2. Enter incorrect username and/or password, then click the "Login" button. | Should see an error message indicating incorrect username and/or password.                                                                | Behaved as expected. | <span style="color:green">Passed</span> |
+|                    | 3. Enter correct username and password, then click the "Login" button.      | Should be redirected to the front page with a message stating "You have successfully logged in."                                          | Behaved as expected. | <span style="color:green">Passed</span> |
+|                    | 4. Check the Navbar after successful login.                                 | The Navbar should now show options according to the user role, like "Logout" and "My Profile". If Superuser also show the "Admin" option. | Behaved as expected. | <span style="color:green">Passed</span> |
+
+---
+
+### Test Scenario 13: Profile Viewing and Editing Functionality
+
+#### User Roles:
+
+- Logged-in User
+- Non-logged-in User
+
+#### Test Description:
+
+To test the profile viewing and editing functionalities.
+
+#### Test Steps and Results:
+
+| User Type          | Test Steps                                                                        | Expected Results                                                                                                        | Actual Results       | Status                                  |
+| ------------------ | --------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | -------------------- | --------------------------------------- |
+| Logged-in User     | 1. Click the "My Profile" button from the Navbar.                                 | Should be redirected to own profile page with an option to edit profile.                                                | Behaved as expected. | <span style="color:green">Passed</span> |
+|                    | 2. Click "Edit Profile" on the profile page.                                      | Should be taken to the edit profile page with options to change profile picture, first name, last name, and about info. | Behaved as expected. | <span style="color:green">Passed</span> |
+|                    | 3. Make changes and click "Submit."                                               | Should be redirected back to the profile page, showing the new changes.                                                 | Behaved as expected. | <span style="color:green">Passed</span> |
+| Non-logged-in User | 4. Try to access `/profile` directly via URL.                                     | Should be redirected to the login page.                                                                                 | Behaved as expected. | <span style="color:green">Passed</span> |
+|                    | 5. Try to access another user's profile via `/profile/username` directly via URL. | Should be able to view the profile (as this feature is intended to be public).                                          | Behaved as expected. | <span style="color:green">Passed</span> |
+|                    | 6. Try to access `/profile/edit` directly via URL.                                | Should be redirected to the login page.                                                                                 | Behaved as expected. | <span style="color:green">Passed</span> |
+
+---
+
+### Test Scenario 14: Author Name Link to Profile
+
+#### User Roles:
+
+- All Users
+
+#### Test Description:
+
+To test whether clicking the author's username in a post or a comment directs the user to the author's profile page.
+
+#### Test Steps and Results:
+
+| User Type      | Test Steps                                                | Expected Results                                 | Actual Results       | Status                                  |
+| -------------- | --------------------------------------------------------- | ------------------------------------------------ | -------------------- | --------------------------------------- |
+| None Logged In | 1. Click on the author's username in a post or a comment. | Should be directed to the author's profile page. | Behaved as expected. | <span style="color:green">Passed</span> |
+| Logged In User | 1. Click on the author's username in a post or a comment. | Should be directed to the author's profile page. | Behaved as expected. | <span style="color:green">Passed</span> |
+| Superuser      | 1. Click on the author's username in a post or a comment. | Should be directed to the author's profile page. | Behaved as expected. | <span style="color:green">Passed</span> |
+
+---
+
+### Test Scenario 15: Admin Panel Functionality
+
+#### User Roles:
+
+- Superuser
+
+#### Test Description:
+
+To test the various functionalities available in the Admin Panel for Superusers.
+
+#### Test Steps and Results:
+
+| User Type | Test Steps                                              | Expected Results                                                                                                    | Actual Results       | Status                                  |
+| --------- | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | -------------------- | --------------------------------------- |
+| Superuser | 1. Access the Admin Panel from the Navbar.              | Should be redirected to the Admin Panel interface.                                                                  | Behaved as expected. | <span style="color:green">Passed</span> |
+|           | 2. Navigate to 'Users' section.                         | Should be able to see a list of registered users and have the ability to change their rights to Superuser or Staff. | Behaved as expected. | <span style="color:green">Passed</span> |
+|           | 3. Navigate to 'Categories' section.                    | Should be able to see existing categories and add new ones.                                                         | Behaved as expected. | <span style="color:green">Passed</span> |
+|           | 4. Navigate to 'Reports' section.                       | Should be able to see reports and remove them.                                                                      | Behaved as expected. | <span style="color:green">Passed</span> |
+|           | 5. Navigate to 'Comments/Posts' section.                | Should be able to delete items.                                                                                     | Behaved as expected. | <span style="color:green">Passed</span> |
+|           | 6. Navigate to 'User Profiles' section.                 | Should be able to edit user profiles.                                                                               | Behaved as expected. | <span style="color:green">Passed</span> |
+|           | 7. Navigate to 'Posts' section within 'Comments/Posts'. | Should be able to edit posts.                                                                                       | Behaved as expected. | <span style="color:green">Passed</span> |
+
+---
+
+### Test Scenario 16: Responsiveness of the Page
+
+#### User Roles:
+
+- All Users
+
+#### Test Description:
+
+To test the responsiveness of the website down to 320px width, ensuring that all elements scale and function properly on smaller screens. This includes navbar functionality, form elements, buttons, and textual content.
+
+#### Test Steps and Results:
+
+| Page/Feature         | Test Steps                           | Expected Results                                    | Actual Results       | Status                                  |
+| -------------------- | ------------------------------------ | --------------------------------------------------- | -------------------- | --------------------------------------- |
+| Navbar               | 1. Scale the browser to 320px width. | Navbar should scale and remain functional.          | Behaved as expected. | <span style="color:green">Passed</span> |
+| Frontpage/View Posts | 1. Scale the browser to 320px width. | Posts should be fully visible and functional.       | Behaved as expected. | <span style="color:green">Passed</span> |
+| Create Post          | 1. Scale the browser to 320px width. | Form should be fully visible and functional.        | Behaved as expected. | <span style="color:green">Passed</span> |
+| Comments Section     | 1. Scale the browser to 320px width. | Comments should be legible and functional.          | Behaved as expected. | <span style="color:green">Passed</span> |
+| My Profile           | 1. Scale the browser to 320px width. | All elements should scale and be functional.        | Behaved as expected. | <span style="color:green">Passed</span> |
+| Edit Profile Page    | 1. Scale the browser to 320px width. | All form elements should be visible and functional. | Behaved as expected. | <span style="color:green">Passed</span> |
+| Login Page           | 1. Scale the browser to 320px width. | Form should be fully visible and functional.        | Behaved as expected. | <span style="color:green">Passed</span> |
+| Register Page        | 1. Scale the browser to 320px width. | Form should be fully visible and functional.        | Behaved as expected. | <span style="color:green">Passed</span> |
+
+#### Notes:
+
+- The website is responsive down to 320px in width.
+- All elements, including text, buttons, and form fields, scale and function as they should.
+- All tests have passed.
+
+---
+
+### Test Scenario 17: Responsiveness on Different Devices
+
+#### User Roles:
+
+- All Users
+
+#### Test Description:
+
+To test the responsiveness of the website on various mobile devices, ensuring that all elements scale and function properly on different screen sizes and browsers.
+
+#### Tested Devices and Browsers:
+
+- iPhone 12 (Safari, Chrome)
+- iPhone 13 Pro Max (Safari, Chrome)
+- iPhone 8 (Safari, Chrome)
+- iPad (Safari, Chrome)
+
+#### Test Steps and Results:
+
+| Device            | Browser | Test Steps                                                         | Expected Results                                  | Actual Results      | Status                                  |
+| ----------------- | ------- | ------------------------------------------------------------------ | ------------------------------------------------- | ------------------- | --------------------------------------- |
+| iPhone 12         | Safari  | 1. Open the website and navigate through different functionalities | Website should be fully functional and responsive | Behaved as expected | <span style="color:green">Passed</span> |
+| iPhone 12         | Chrome  | 1. Open the website and navigate through different functionalities | Website should be fully functional and responsive | Behaved as expected | <span style="color:green">Passed</span> |
+| iPhone 13 Pro Max | Safari  | 1. Open the website and navigate through different functionalities | Website should be fully functional and responsive | Behaved as expected | <span style="color:green">Passed</span> |
+| iPhone 13 Pro Max | Chrome  | 1. Open the website and navigate through different functionalities | Website should be fully functional and responsive | Behaved as expected | <span style="color:green">Passed</span> |
+| iPhone 8          | Safari  | 1. Open the website and navigate through different functionalities | Website should be fully functional and responsive | Behaved as expected | <span style="color:green">Passed</span> |
+| iPhone 8          | Chrome  | 1. Open the website and navigate through different functionalities | Website should be fully functional and responsive | Behaved as expected | <span style="color:green">Passed</span> |
+| iPad              | Safari  | 1. Open the website and navigate through different functionalities | Website should be fully functional and responsive | Behaved as expected | <span style="color:green">Passed</span> |
+| iPad              | Chrome  | 1. Open the website and navigate through different functionalities | Website should be fully functional and responsive | Behaved as expected | <span style="color:green">Passed</span> |
+
+#### Notes:
+
+- The website is responsive and fully functional on all tested devices and browsers.
+- All tests have passed.
