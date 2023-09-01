@@ -243,7 +243,7 @@ class UserProfileView(View):
         )
 
 
-class ReportItemView(View):
+class ReportItemView(LoginRequiredMixin, View):
     """View for reporting posts or comments."""
 
     template_name = 'report_form.html'
