@@ -8,6 +8,8 @@ The development of Loopit followed an Agile methodology, utilizing a Kanban boar
 
 ### Kanban Board
 
+[Link to the board](https://github.com/users/birgerosterberg/projects/1/views/1)
+
 The board was divided into three primary columns:
 
 - **Todo**: Tasks that are planned but not yet in progress.
@@ -383,17 +385,21 @@ Loopit offers a simple yet effective pagination system to help users navigate th
 
 This intuitive pagination setup ensures that users can easily explore more content without feeling overwhelmed by a seemingly endless scroll of posts.
 
-### Technical Features
+## Testing
 
-#### Responsive Design
+[Link to separate testing readme](https://github.com/birgerosterberg/loopit/blob/main/TESTING.md)
+
+## Technical Features
+
+### Responsive Design
 
 Loopit was built with a responsive design to ensure an optimal user experience across a variety of devices, including desktops, tablets, and smartphones.
 
-#### CRUD on Posts
+### CRUD on Posts
 
 The platform allows for full CRUD (Create, Read, Update, Delete) operations on user-generated posts. This enables users to freely share their insights, ask questions, and interact with the community.
 
-#### Simple Easy Design
+### Simple Easy Design
 
 Ease of use was a primary consideration during the design phase. Loopit features a clean, intuitive interface that lets users navigate the site with minimal effort.
 

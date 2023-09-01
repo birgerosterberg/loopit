@@ -132,3 +132,113 @@ To test the different viewing options and buttons available on individual post p
 | Logged-in User     | 1. Log in as a different user (not the author of the post). | Should see the post, the "Report" button on the post, and the "Create a Comment" fields.                                                    | Behaved as expected. | <span style="color:green">Passed</span> |
 |                    |                                                             |                                                                                                                                             |                      |                                         |
 | Non-logged-in User | 1. View the post without logging in.                        | Should see the post and the comments made on it. No "Report" button or "Create a Comment" fields visible.                                   | Behaved as expected. | <span style="color:green">Passed</span> |
+
+---
+
+### Test Scenario 6: Testing the "Report" Functionality
+
+#### User Roles:
+
+- Logged-in User
+- Non-logged-in User
+
+#### Test Description:
+
+To test if the "Report" function can be used by a Logged-in User to report a post or a comment. Also to test if a Non-logged-in User can access the URL for reporting.
+
+#### Test Steps and Results:
+
+| User Type          | Test Steps                                                                           | Expected Results                                       | Actual Results       | Status                                  |
+| ------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------ | -------------------- | --------------------------------------- |
+| Logged-in User     | 1. Log in and navigate to a post or comment.                                         | Should see the "Report" button on the post or comment. | Behaved as expected. | <span style="color:green">Passed</span> |
+|                    | 2. Click the "Report" button on the post or comment.                                 | Should be able to report the post or comment.          | Behaved as expected. | <span style="color:green">Passed</span> |
+| Non-logged-in User | 1. Try to directly access the URL for the "Report" functionality without logging in. | Should be redirected to the login page.                | Behaved as expected. | <span style="color:green">Passed</span> |
+
+---
+
+### Test Scenario 7: Admin/Superuser Viewing Reports
+
+#### User Roles:
+
+- Admin / Superuser
+
+#### Test Description:
+
+To test if the Admin or Superuser can view reports made on posts or comments after they have been reported.
+
+#### Test Steps and Results:
+
+| User Type       | Test Steps                                                                            | Expected Results                                               | Actual Results       | Status                                  |
+| --------------- | ------------------------------------------------------------------------------------- | -------------------------------------------------------------- | -------------------- | --------------------------------------- |
+| Admin/Superuser | 1. Log in as Admin or Superuser and navigate to the section where reports are listed. | Should be able to see the list of reported posts and comments. | Behaved as expected. | <span style="color:green">Passed</span> |
+
+---
+
+### Test Scenario 8: Edit and Delete Posts
+
+#### User Roles:
+
+- Author (User who owns the post)
+- Non-logged-in User
+- Non-author Logged-in User
+
+#### Test Description:
+
+To test the edit and delete functionalities of posts, making sure they are restricted based on user roles and function as designed.
+
+#### Test Steps and Results:
+
+| User Type                 | Test Steps                                                                               | Expected Results                                                                                                  | Actual Results       | Status                                  |
+| ------------------------- | ---------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | -------------------- | --------------------------------------- |
+| Author                    | 1. Log in and navigate to a post you authored.                                           | Should see the "Edit" and "Delete" options.                                                                       | Behaved as expected. | <span style="color:green">Passed</span> |
+|                           | 2. Click on the "Edit" button and make changes.                                          | Should be directed to the Edit page, and upon making changes and submitting, redirected back to the updated post. | Behaved as expected. | <span style="color:green">Passed</span> |
+|                           | 3. Click on the "Delete" button.                                                         | Should be directed to a confirmation page asking to confirm the delete action.                                    | Behaved as expected. | <span style="color:green">Passed</span> |
+|                           | 4. Confirm the delete action.                                                            | Should be redirected to the front page with a "Post has been deleted" message.                                    | Behaved as expected. | <span style="color:green">Passed</span> |
+| Non-logged-in User        | 1. Navigate to a post without logging in.                                                | Should not see "Edit" and "Delete" options.                                                                       | Behaved as expected. | <span style="color:green">Passed</span> |
+|                           | 2. Try to directly access the Edit/Delete URL for that specific post without logging in. | Should be redirected to the login page.                                                                           | Behaved as expected. | <span style="color:green">Passed</span> |
+| Non-author Logged-in User | 1. Log in and navigate to a post you did not author.                                     | Should not see "Edit" and "Delete" options.                                                                       | Behaved as expected. | <span style="color:green">Passed</span> |
+|                           | 2. Try to directly access the Edit/Delete URL for that specific post while logged in.    | Should not be able to edit or delete the post. Should be redirected or see an unauthorized message.               | Behaved as expected. | <span style="color:green">Passed</span> |
+
+---
+
+### Test Scenario 9: Create a Comment
+
+#### User Roles:
+
+- Logged-in User
+- Non-logged-in User
+
+#### Test Description:
+
+To test the functionality of creating a comment on a post as a logged-in user.
+
+#### Test Steps and Results:
+
+| User Type          | Test Steps                                                  | Expected Results                                                                                                              | Actual Results       | Status                                  |
+| ------------------ | ----------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | -------------------- | --------------------------------------- |
+| Logged-in User     | 1. Log in and navigate to a post.                           | Should see a comment field with a "Submit" button.                                                                            | Behaved as expected. | <span style="color:green">Passed</span> |
+|                    | 2. Write something in the comment field and click "Submit". | Comment should be created, username should be displayed along with time and date. Comment count on post should increase by 1. | Behaved as expected. | <span style="color:green">Passed</span> |
+| Non-logged-in User | 1. Navigate to a post without logging in.                   | Should not see the comment field or "Submit" button.                                                                          | Behaved as expected. | <span style="color:green">Passed</span> |
+
+---
+
+### Test Scenario 10: Account Creation (Registration)
+
+#### User Roles:
+
+- Non-logged-in User
+
+#### Test Description:
+
+To test the functionality of account creation via the Signup page.
+
+#### Test Steps and Results:
+
+| User Type          | Test Steps                                                                                                                                        | Expected Results                                                                                                   | Actual Results       | Status                                  |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ | -------------------- | --------------------------------------- |
+| Non-logged-in User | 1. Navigate to the Signup page by clicking the "Register" button.                                                                                 | Should be taken to the Signup page, with fields for username, optional email, password, and password confirmation. | Behaved as expected. | <span style="color:green">Passed</span> |
+|                    | 2. Enter an improperly formatted email (e.g., "wrongemail.com") and click the "Sign Up" button.                                                   | Should see an error message indicating that the email format is incorrect.                                         | Behaved as expected. | <span style="color:green">Passed</span> |
+|                    | 3. Enter a non-unique username and click the "Sign Up" button.                                                                                    | Should see an error message stating that the username needs to be unique.                                          | Behaved as expected. | <span style="color:green">Passed</span> |
+|                    | 4. Enter a weak password and click the "Sign Up" button.                                                                                          | Should see an error message about the password not being strong enough.                                            | Behaved as expected. | <span style="color:green">Passed</span> |
+|                    | 5. Enter differing passwords in the "Password" and "Repeat Password" fields, then click the "Sign Up" button.                                     | Should see an error message stating that the passwords do not match.                                               | Behaved as expected. | <span style="color:green">Passed</span> |
+|                    | 6. Fill in all fields correctly with a properly formatted email, unique username, and matching strong passwords, then click the "Sign Up" button. | Should successfully create the account and be redirected to the frontpage.                                         | Behaved as expected. | <span style="color:green">Passed</span> |
