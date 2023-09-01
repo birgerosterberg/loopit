@@ -389,6 +389,95 @@ This intuitive pagination setup ensures that users can easily explore more conte
 
 [Link to separate testing readme](https://github.com/birgerosterberg/loopit/blob/main/TESTING.md)
 
+### Summary of Test Scenarios
+
+#### Test Scenario 1: Navbar Visibility and Functionality
+
+- **Brief Description**: Verifies if the navigation bar items are properly displayed and function as expected for different user roles.
+- **Note**: Essential for navigating the site; passed all tests.
+
+#### Test Scenario 2: "Create Post" Button Visibility
+
+- **Brief Description**: Checks if the 'Create Post' button is visible for logged-in and superusers but not for guests.
+- **Note**: Post creation access control tested; all conditions met.
+
+#### Test Scenario 3: "Create Post" Page Accessibility and Functionality
+
+- **Brief Description**: Validates the form fields for creating a post and confirms if they are mandatory.
+- **Note**: Ensures only qualified users can post; all tests passed.
+
+#### Test Scenario 4: Category Filter Functionality
+
+- **Brief Description**: Tests if posts can be filtered based on categories.
+- **Note**: Makes browsing easier; categories work as expected.
+
+#### Test Scenario 5: Viewing Individual Post Pages
+
+- **Brief Description**: Examines what each type of user can see when viewing a post.
+- **Note**: Tailored user experiences; worked as intended.
+
+#### Test Scenario 6: Testing the "Report" Functionality
+
+- **Brief Description**: Verifies if posts and comments can be reported by logged-in users.
+- **Note**: Key for community moderation; functionality verified.
+
+#### Test Scenario 7: Admin/Superuser Viewing Reports
+
+- **Brief Description**: Ensures an admin can view reports made by users.
+- **Note**: Important for site moderation; tests passed.
+
+#### Test Scenario 8: Edit and Delete Posts
+
+- **Brief Description**: Confirms if post authors can edit and delete their posts.
+- **Note**: Author controls verified; all tests passed.
+
+#### Test Scenario 9: Create a Comment
+
+- **Brief Description**: Validates if logged-in users can create comments on posts.
+- **Note**: Enhances user interaction; functioned as expected.
+
+#### Test Scenario 10: Account Creation (Registration)
+
+- **Brief Description**: Tests the user registration form and its various input validations.
+- **Note**: Account creation validation tests all passed.
+
+#### Test Scenario 11: Logout Functionality
+
+- **Brief Description**: Confirms if users can log out successfully.
+- **Note**: Logout procedure validated; tests successful.
+
+#### Test Scenario 12: Login Functionality
+
+- **Brief Description**: Validates if users can log in successfully.
+- **Note**: Access control tests passed; login functional.
+
+#### Test Scenario 13: Profile Viewing and Editing Functionality
+
+- **Brief Description**: Tests if users can view and edit their profiles.
+- **Note**: Personalization tests successful; profile pages validated.
+
+#### Test Scenario 14: Author Name Link to Profile
+
+- **Brief Description**: Verifies if clicking the author's name takes you to their profile.
+- **Note**: Enhances social features; worked as expected.
+
+#### Test Scenario 15: Admin Panel Functionality
+
+- **Brief Description**: Validates if the admin panel works as expected.
+- **Note**: Essential for site management; all functionalities work.
+
+#### Test Scenario 16: Responsiveness of the Page
+
+- **Brief Description**: Tests the site's responsiveness in general.
+- **Note**: Accessibility validated; all tests passed.
+
+#### Test Scenario 17: Responsiveness on Different Devices
+
+- **Brief Description**: Tests the site's responsiveness on different devices and browsers.
+- **Note**: Accessibility on multiple devices confirmed; all tests passed.
+
+[Link to separate testing readme](https://github.com/birgerosterberg/loopit/blob/main/TESTING.md)
+
 ## Technical Features
 
 ### Responsive Design
@@ -489,5 +578,189 @@ I opted for Bootstrap as my go-to framework. It simplified the development proce
 
 Minimalism was always at the forefront of my mind while designing this platform. My goal was to include only what's absolutely necessary for users, eliminating any elements that could distract or confuse. This 'less is more' philosophy has shaped Loopit into a platform that's simple but efficient, devoid of any unnecessary bells and whistles.
 
-Credits: \
+## Technologies Used
+
+### Frontend / Backend
+
+- **HTML**:
+  - The structure of the Website was developed using HTML as the main language.
+- **CSS**:
+  - The Website was styled using custom CSS in an external file.
+- **JavaScript**:
+  - Used to manipulate the DOM.
+- **Bootstrap**:
+  - Used throughout the site for responsiveness, layout, and predefined style elements.
+- **Font Awesome**:
+  - Used for various icons throughout the site.
+- **Favicon.io**:
+  - Favicon files were created at [Favicon.io Converter](https://favicon.io/favicon-converter/).
+- **Python**:
+  - The main programming language used for the application.
+- **Django**:
+  - Python web framework used for building the application.
+- **Cloudinary**:
+  - A cloud storage solution for website media and other static files. It also allows for the manipulation and optimization of media delivery.
+
+### Version Control and Deployment
+
+- **Git**:
+  - Used to commit and push code during the development of the Website.
+- **GitHub**:
+  - Source code is hosted on GitHub.
+- **Heroku**:
+  - Used for live website deployment.
+
+### Design and Planning
+
+- **Balsamiq**:
+  - Wireframes were created using Balsamiq from [Balsamiq Website](https://balsamiq.com/wireframes/desktop/).
+
+## Deployment
+
+### Version Control
+
+1. **The Site**
+
+- The Site was created using VSCode workspace and pushed to GitHub.
+
+2. **Adding Files to Staging**
+
+- Run `git add .` to add files to the staging area.
+
+3. **Committing Changes**
+
+- Run `git commit -m "commit message"` to commit changes to the local repository.
+
+4. **Pushing Changes**
+
+- Run `git push` to push committed code to GitHub.
+
+### Heroku Deployment
+
+#### Requirement and Procfile
+
+1. **Creating `requirements.txt`**
+
+- Run `pip3 freeze --local > requirements.txt` to generate the `requirements.txt` file.
+
+2. **Creating Procfile**
+
+- Create a `Procfile` with the line `web: gunicorn loopit.wsgi`.
+
+#### Creating Heroku App
+
+1. **Log into Heroku**
+
+- Go to the Heroku Dashboard.
+
+2. **Create a New App**
+
+- Click "New" and select "Create new app".
+
+3. **Naming and Region**
+
+- Name your app and select the closest region.
+
+### Creating a Database
+
+1. **Log into ElephantSQL**
+
+- Log into ElephantSQL.com and access your dashboard.
+
+2. **Create New Instance**
+
+- Click "Create New Instance".
+
+3. **Setting up Plan and Region**
+
+- Set up a plan, name it, and select the closest data center.
+
+4. **Final Steps**
+
+- Click "Review" and "Create instance".
+
+5. **Copy Database URL**
+
+- Return to the ElephantSQL dashboard and copy the database URL.
+
+### The `env.py` File
+
+1. **Create `env.py`**
+
+- Create an `env.py` file and ensure it's in `.gitignore`.
+
+2. **Add Environment Variables**
+
+- Add `DATABASE_URL` and `SECRET_KEY` to `env.py`.
+
+3. **Cloudinary (Optional)**
+
+- If using Cloudinary, add `CLOUDINARY_URL` to `env.py`.
+
+### Setting Environment Variables in Heroku
+
+1. **Access Heroku Dashboard**
+
+- Go to "Settings" in the Heroku Dashboard.
+
+2. **Reveal Config Vars**
+
+- Click "Reveal Config Vars".
+
+3. **Add Config Vars**
+
+- Add `DATABASE_URL` and `SECRET_KEY`. Optionally, add `CLOUDINARY_URL` and `PORT`.
+
+### Connecting to GitHub and Deploy
+
+1. **Select Deployment Method**
+
+- On the Heroku Dashboard, go to "Deploy" and select GitHub.
+
+2. **Connect to GitHub**
+
+- Search for the project repository and click "Connect".
+
+3. **Enable Automatic Deploys**
+
+- Optionally, enable automatic deploys.
+
+4. **Deploy Branch**
+
+- Click "Deploy Branch".
+
+### Forking the Repository
+
+1. **Locate Repository**
+
+- Log into GitHub and locate the repository.
+
+2. **Fork Repository**
+
+- Click the "Fork" button.
+
+### Making a Local Clone
+
+1. **Locate Repository on GitHub**
+
+- Log into GitHub and find the repository.
+
+2. **Copy Repository URL**
+
+- Click the 'Code' dropdown and copy the URL.
+
+3. **Open Git Bash**
+
+- Open Git Bash in your IDE.
+
+4. **Clone Repository**
+
+- Run `git clone <URL>`.
+
+5. **Install Requirements**
+
+- Run `pip install -r requirements.txt` to install the necessary packages.
+
+## Credits:
+
 https://www.pngegg.com/en/png-zepmn - Infinity symbol default.jpg
