@@ -421,3 +421,94 @@ To test the responsiveness of the website on various mobile devices, ensuring th
 
 - The website is responsive and fully functional on all tested devices and browsers.
 - All tests have passed.
+
+## Accessibility
+
+Wave Accessibility tool was used throughout development and for final testing of the deployed website to ensure aid in accessibility testing.
+
+### Testing Criteria
+
+Testing focused on the following criteria:
+
+- **Color Contrast**: Meeting a minimum ratio as specified in [WCAG 2.1 Contrast Guidelines](https://www.w3.org/TR/WCAG21/#contrast-minimum).
+- **Heading Levels**: Ensuring no heading levels are missed or skipped.
+- **Landmarks**: All content is contained within landmarks for ease of assistive technology.
+- **Non-Textual Content**: Providing alternative text or titles for all non-textual content.
+- **HTML Page Lang**: Setting the HTML page lang attribute.
+- **Aria Properties**: Ensuring correct implementation of Aria properties.
+- **Coding Best Practices**: Following WCAG 2.1 coding best practices.
+
+Manual tests were also performed to make the website as accessible as possible. A few accessibility issues were identified and subsequently fixed.
+
+## Additional Validation Testing
+
+In addition to the accessibility tests, several other tests were conducted to ensure the code quality and standard compliance of the project.
+
+### W3C Testing
+
+- **HTML**: Passed without any remarks. \
+  ![w3c html](<readme_files/w3c html.png>)
+- **CSS**: Passed without any remarks. \
+  ![w3c css](<readme_files/w3c css.png>)
+
+### JSHint Testing
+
+JavaScript code was analyzed using JSHint and passed without any remarks. \
+![jshing test](readme_files/jshint.png)
+
+### PEP8 Testing
+
+Python code was analyzed using PEP8 and passed without any remarks with the [CodeInstitute Python Linter](https://pep8ci.herokuapp.com/)
+
+## Running Automatic Tests for `loopit`
+
+### Setting Up the Test Environment
+
+Navigate to your project directory where `manage.py` is located.
+
+### How to Run Tests
+
+To run the tests, execute the following command:
+
+\`\`\`bash
+python manage.py test --settings=loopit.settings_test
+\`\`\`
+
+This uses the SQLite database specified in `loopit.settings_test`.
+
+### Test Classes and Methods
+
+#### Class: `PostViewTests`
+
+This test class focuses on testing various views related to `Post` objects.
+
+##### `setUpTestData` Method
+
+- **What it does**: Sets up the test data used in all the test methods in this class.
+- **Prints**: `Setup Test Data: Creating user, category, and post...`
+- **Actions**:
+  1. Creates a test user with username 'testuser' and password 'thisissosaf3'.
+  2. Creates a test category named 'TestCategory'.
+  3. Creates a test post titled 'Test Post' authored by the test user and categorized under 'TestCategory'.
+
+#### Method: `test_non_logged_in_user_edit_post`
+
+- **What it does**: Tests if a non-logged-in user can edit a post.
+- **Prints**: `Test Start: Non-logged-in user trying to edit a post...`
+- **Actions**:
+  1. Attempts to access the edit URL for the test post.
+  2. Checks if the user is redirected to the login page.
+- **Prints**: `Verifying the redirect to the login page...`
+- **Expected Outcome**: The user should be redirected to the login page.
+- **Prints**: `Test Success: Redirected to login page as expected.`
+
+#### Method: `test_non_logged_in_user_delete_post`
+
+- **What it does**: Tests if a non-logged-in user can delete a post.
+- **Prints**: `Test Start: Non-logged-in user trying to delete a post...`
+- **Actions**:
+  1. Attempts to access the delete URL for the test post.
+  2. Checks if the user is redirected to the login page.
+- **Prints**: `Verifying the redirect to the login page...`
+- **Expected Outcome**: The user should be redirected to the login page.
+- **Prints**: `Test Success: Redirected to login page as expected.`

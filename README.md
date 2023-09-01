@@ -581,6 +581,12 @@ I opted for Bootstrap as my go-to framework. It simplified the development proce
 
 Minimalism was always at the forefront of my mind while designing this platform. My goal was to include only what's absolutely necessary for users, eliminating any elements that could distract or confuse. This 'less is more' philosophy has shaped Loopit into a platform that's simple but efficient, devoid of any unnecessary bells and whistles.
 
+## Wireframes
+
+![Wireframe frontpage](readme_files/wf1.png) \
+![Wireframe mobile](readme_files/wfm.png) \
+![Wireframe Postview](readme_files/wfp.png)
+
 ## Technologies Used
 
 ### Frontend / Backend
