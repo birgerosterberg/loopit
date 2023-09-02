@@ -460,6 +460,14 @@ JavaScript code was analyzed using JSHint and passed without any remarks. \
 
 Python code was analyzed using PEP8 and passed without any remarks with the [CodeInstitute Python Linter](https://pep8ci.herokuapp.com/)
 
+## Lightouse score
+
+Mobile score: \
+![Mobile Lighthouse](readme_files/mobile.png)
+
+Desktop score: \
+![Desktop Lightouse](readme_files/desktop.png)
+
 ## Running Automatic Tests for `loopit`
 
 ### Setting Up the Test Environment

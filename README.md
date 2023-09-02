@@ -50,13 +50,13 @@ As a developer, I need to create the navbar so that users can navigate the websi
 User Stories: \
 As a new user, I want to create an account so that I can start using the LoopIt. \
 As a registered user, I want to be able to log in and log out of my account. \
-X As a registered user, I want to reset my password if I forget it.
+As a registered user, I want to reset my password if I forget it. (Left to implement in a later sprint)
 
 **Epic 3: User Profile and Settings** \
 **Description: Implement user profiles where users can view their activity, customize display names, and upload profile pictures.**
 
 User Stories: \
-X As a user, I want to have a profile page where I can see my posts and likes. \
+As a user, I want to have a profile page where I can see my posts and likes. (Left to implement in a later sprint) \
 As a user, I want to customize my display name and profile picture.
 
 ### Content Management:
@@ -74,9 +74,9 @@ As a user, I want to delete my own posts if I decide to remove them.
 **Description: Enable users to interact with posts by liking, commenting, reporting and rating them.**
 
 User Stories: \
-X As a user, I want to like posts that I find interesting to show appreciation for the content. \
+As a user, I want to like posts that I find interesting to show appreciation for the content. (Left to implement in a later sprint) \
 As a user, I want to comment on posts to engage with the community and share my thoughts. \
-X As a user, I want to rate posts using a heart-based system to express my opinion about the quality of the content. \
+As a user, I want to rate posts using a heart-based system to express my opinion about the quality of the content. (Left to implement in a later sprint) \
 As a user, I want to report a post if I find it inappropriate, offensive, or violating the community guidelines. \
 As a user, I want to report a comment that I believe is inappropriate or offensive.
 
@@ -118,6 +118,33 @@ The scope of Loopit was carefully defined to create a focused and user-friendly 
 - Providing a community space specifically geared towards loop-based music enthusiasts.
 - Offering functionalities that support collaboration, sharing, and learning.
 - Ensuring a secure and safe environment for all users to freely express themselves and share content.
+
+## Future Enhancements
+
+Loopit is ever-evolving, and there are several features in the pipeline that aim to augment user experience and engagement. Here are some anticipated updates:
+
+### Private Messaging and Profile Walls
+
+- **Private Messaging**: A feature to facilitate one-to-one communication between users.
+- **Profile Walls**: An update to the profile section where users can post updates and essentially have their own personal feed.
+
+### Creative 'Like' Functionality
+
+- **Post and Comment Likes**: Currently modeled as 'Upvibes' in the backend, im looking into creative ways to integrate this into the user interface, making it more than just a traditional 'Like'.
+
+### Live Performance Category with Rating System
+
+- **Live Performances**: A new category that will focus specifically on live performances.
+
+- **Rating System**: This category will include a unique rating system.
+
+### Notification and Reply System
+
+- **Post Notification**: A notification system will be implemented to alert users when their posts have been answered or interacted with, ensuring that you never miss an update.
+
+- **Threaded Comments**: A reply function is planned to make comment sections more coherent and interactive. This will allow users to reply to specific comments, creating a nested or 'threaded' conversation structure.
+
+- **Reply Notifications**: Alongside this, a notification system will inform users when their comments have been replied to, making it easier to follow conversations you're part of.
 
 ---
 
